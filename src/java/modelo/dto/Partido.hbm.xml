@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-sep-2018 14:31:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.dto.Partido" table="partido" catalog="liga_nos_vamos" optimistic-lock="version">
+        <id name="idPartido" type="java.lang.Integer">
+            <column name="id_partido" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="equipoByEquipo2" class="modelo.dto.Equipo" fetch="select">
+            <column name="equipo_2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="equipoByEquipo1" class="modelo.dto.Equipo" fetch="select">
+            <column name="equipo_1" not-null="true" />
+        </many-to-one>
+        <property name="idLiga" type="int">
+            <column name="id_liga" not-null="true" />
+        </property>
+        <property name="equipoGanador" type="string">
+            <column name="equipo_ganador" length="30" />
+        </property>
+        <property name="equipoPerdedor" type="string">
+            <column name="equipo_perdedor" length="30" />
+        </property>
+        <property name="fechaPartido" type="date">
+            <column name="fecha_partido" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

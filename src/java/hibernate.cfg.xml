@@ -6,5 +6,14 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <mapping resource="modelo/dto/Liga.hbm.xml"/>
+    <mapping resource="modelo/dto/Usuario.hbm.xml"/>
+    <mapping resource="modelo/dto/EstadoUsuario.hbm.xml"/>
+    <mapping resource="modelo/dto/Titular.hbm.xml"/>
+    <mapping resource="modelo/dto/Equipo.hbm.xml"/>
+    <mapping resource="modelo/dto/TipoUsuario.hbm.xml"/>
+    <mapping resource="modelo/dto/Jugador.hbm.xml"/>
+    <mapping resource="modelo/dto/Partido.hbm.xml"/>
+    <mapping resource="modelo/dto/Premio.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

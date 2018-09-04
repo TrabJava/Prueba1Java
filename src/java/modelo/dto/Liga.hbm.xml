@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-sep-2018 14:31:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.dto.Liga" table="liga" catalog="liga_nos_vamos" optimistic-lock="version">
+        <id name="idLiga" type="java.lang.Integer">
+            <column name="id_liga" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcionLiga" type="string">
+            <column name="descripcion_liga" length="100" not-null="true" />
+        </property>
+        <set name="equipos" table="equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_liga" not-null="true" />
+            </key>
+            <one-to-many class="modelo.dto.Equipo" />
+        </set>
+    </class>
+</hibernate-mapping>

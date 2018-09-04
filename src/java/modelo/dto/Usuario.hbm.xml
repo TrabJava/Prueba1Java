@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-sep-2018 14:31:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.dto.Usuario" table="usuario" catalog="liga_nos_vamos" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="id_usuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="estadoUsuario" class="modelo.dto.EstadoUsuario" fetch="select">
+            <column name="id_estado_usuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoUsuario" class="modelo.dto.TipoUsuario" fetch="select">
+            <column name="id_tipo_usuario" not-null="true" />
+        </many-to-one>
+        <property name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="25" not-null="true" />
+        </property>
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" length="40" not-null="true" />
+        </property>
+        <set name="equipos" table="equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.dto.Equipo" />
+        </set>
+    </class>
+</hibernate-mapping>
