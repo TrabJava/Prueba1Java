@@ -32,12 +32,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="mail-form-agile">
                     <form action="#" method="post">
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
-                        <input type="text" name="txtContrasenia" placeholder="Ingrese Nombre" required=""/>
-                        <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>     
+                        <input type="text" name="txtContrasenia" placeholder="Ingrese Contraseña" required=""/>     
                         <select class="gitHubButton" id ="idTipo_estado">
                             <option value = "1">Activo</option>
                             <option value = "2"> Desactivo </option>
                         </select>
+                        <br>
+                        <br>
                         <br>
                         <input type="submit" value="Registrar" id="btnAgregar" class="btnAgregar">
                     </form>
