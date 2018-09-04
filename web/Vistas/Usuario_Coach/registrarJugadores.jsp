@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
                         <input type="text" name="txtContrasenia" placeholder="Ingrese Nombre" required=""/>
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
-                        <select id ="idTipo_estado">
+                        <select id ="id_tipo_estado">
                             <option value = "1">Activo</option>
                             <option value = "2"> Desactivo </option>
                         </select>
