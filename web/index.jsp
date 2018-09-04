@@ -83,6 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#services" class="scroll"><span data-hover="Services">Torneos</span></a></li>
                                 <li><a href="#work" class="scroll"><span data-hover="Gallery">Fotos</span></a></li>
                                 <li><a href="#projects" class="scroll"><span data-hover="News">Nuevo</span></a></li>
+                                <li><a href="login.jsp" ><span data-hover="Login">Login</span></a></li>
                             </ul>
                         </nav>
                     </div>
