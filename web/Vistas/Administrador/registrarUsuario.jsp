@@ -21,7 +21,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <link href="../../login/css/style.css" rel="stylesheet" type="text/css" media="all" />
     </head>
-
     <body>
         <div class="padding-all">
             <div class="header">
@@ -34,6 +33,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
                         <input type="text" name="txtContrasenia" placeholder="Ingrese Nombre" required=""/>
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
+                        <label id="img_category_label"class="field"for="img_category"data-value="">
+                            <span>Category</span>
+                            <div id="img_category"class="psuedo_select"name="img_category">
+                                <span class="selected"></span>
+                                <ul id="img_category_options"class="options">
+                                    <li class="option"data-value="commercial">Commercial</li>
+                                    <li class="option"data-value="residential">Residential</li>
+                                </ul>
+                            </div>
+                        </label>
                         <select id ="idTipo_estado">
                             <option value = "1">Activo</option>
                             <option value = "2"> Desactivo </option>

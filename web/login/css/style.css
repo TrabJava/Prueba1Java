@@ -84,7 +84,7 @@ margin:0 auto;
 .padding {
 margin: 20px 0 30px;
 }
-.mail-form-agile input[type="text"], .mail-form-agile input[type="password"],.mail-form-agile input[select="password"] {
+.mail-form-agile input[type="text"], .mail-form-agile input[type="password"] {
 padding: 13px 10px;
 width: 92.5%;
 font-size: 16px;
@@ -319,5 +319,5 @@ padding:75px 30px;
 
 
 
-
+/*https://codepen.io/sammurphey/pen/BQvZbq*/
 
