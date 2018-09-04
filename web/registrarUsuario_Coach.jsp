@@ -32,7 +32,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="mail-form-agile">
                     <form action="#" method="post">
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
-                        <input type="text" name="txtContrasenia" placeholder="Ingrese Contraseña" required=""/>     
+                        <input type="text" name="txtContrasenia" placeholder="Ingrese Contraseña" required=""/>   
+                        <%--Falta Agregar el Tipo estado
+                            Se supone que debe agregarse activado(con un hidden quizas)--%>
                         <br>
                         <br>
                         <br>

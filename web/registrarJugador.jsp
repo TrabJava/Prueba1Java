@@ -34,7 +34,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <input type="text" name="txtRut" placeholder="Ingrese Rut" required=""/>
                         <input type="text" name="txtNombreJugador" placeholder="Ingrese Nombre" required=""/>     
                         <input type="text" name="txtApellidoJugador" placeholder="Ingrese Contraseña" required=""/>        
-                        <br>
+                        <select id ="idEquipo">
+                            <option value = "1"></option>
+                            <option value = "2">  </option>
+                        </select>
                         <br>
                         <br>
                         <input type="submit" value="Registrar" id="btnAgregar" class="btnAgregar">

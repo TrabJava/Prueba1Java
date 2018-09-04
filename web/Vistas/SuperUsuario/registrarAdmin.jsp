@@ -32,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <form action="#" method="post">
                         <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
                         <input type="text" name="txtContrasenia" placeholder="Ingrese Nombre" required=""/>
-                        <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
+                        <%--Se debe agregar un tipo usuario en este caso un Administrador (con hidden)--%>
                         <select id ="idTipo_estado">
                             <option value = "1">Activo</option>
                             <option value = "2"> Desactivo </option>
