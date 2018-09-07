@@ -35,6 +35,14 @@ public class Usuario  implements java.io.Serializable {
        this.contrasenia = contrasenia;
        this.equipos = equipos;
     }
+    public Usuario(Usuario usuario, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Usuario(String user, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
     public Integer getIdUsuario() {
         return this.idUsuario;

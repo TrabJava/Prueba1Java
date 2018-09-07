@@ -5,13 +5,12 @@
  */
 package modelo.dao;
 
+import java.util.List;
+import modelo.dto.Usuario;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-/**
- *
- * @ La vieja del bernal se la re come, !Pero si salio mas puta que la madre!
- */
+
 public class UsuarioDAO {
     
     private Session session; //Contiene los Querys
@@ -22,5 +21,23 @@ public class UsuarioDAO {
         tx=session.beginTransaction();
     }
     
+    //Metodos para leer el usuario
+    public Usuario buscar(String user,String pass){
+        try {
+           iniOperaciones();
+            List<Usuario> lista = session.createQuery("from usuario where nombre_usuario='"+ user +"' and contrasenia='"+ pass +"'").list();
+            for (Usuario aux : lista) {
+                if (aux.getNombreUsuario().equals(user) && aux.getContrasenia().equals(pass)) {
+                    return aux;
+                }
+            }
+            
+        } catch (Exception e) {
+           tx.rollback();
+           session.close();
+           throw new RuntimeException("Error:  " + e.getMessage());
+        }
+        return null;
+    }
     
 }
