@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author duoc
+ * @ La vieja del bernal se la re come, !Pero si salio mas puta que la madre!
  */
 public class UsuarioDAO {
     
