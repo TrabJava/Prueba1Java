@@ -18,25 +18,8 @@
    <body>
         <div class="container">
             <ul id="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#s1">Menu 1</a>
-                    <span id="s1"></span>
-                    <ul class="subs">
-                        <li><a href="#">Header a</a>
-                            <ul>
-                                <li><a href="#">Submenu x</a></li>
-                                <li><a href="#">Submenu y</a></li>
-                                <li><a href="#">Submenu z</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Header b</a>
-                            <ul>
-                                <li><a href="#">Submenu x</a></li>
-                                <li><a href="#">Submenu y</a></li>
-                                <li><a href="#">Submenu z</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <li><a href="index.jsp">Inicio</a></li>
+                <li><a href="Agregar_Administrador.jsp">Agregar</a>        
                 </li>
                 <li class="active"><a href="#s2">Menu 2</a>
                     <span id="s2"></span>
