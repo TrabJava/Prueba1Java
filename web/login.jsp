@@ -30,7 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<div class="design-w3l">
 			<div class="mail-form-agile">
-				<form action="" method="get">
+				<form action="ProcesoUsuario" method="GET">
 					<input type="text" name="txtNombreUsuario" placeholder="ingrese su nombre de usuario" required=""/>
 					<input type="password"  name="txtPassword" class="padding" placeholder="ingrese su contraseña" required=""/>
                                         <input type="submit" name="btnAccion" value="ingresar">
