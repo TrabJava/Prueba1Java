@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Artiko1
  */
-public class ServletUsuario extends HttpServlet {
+public class ServletAdministrador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +35,10 @@ public class ServletUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletUsuario</title>");            
+            out.println("<title>Servlet ServletAdministrador</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletUsuario at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletAdministrador at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
