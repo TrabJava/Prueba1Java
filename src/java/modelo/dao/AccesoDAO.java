@@ -11,7 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
-public class UsuarioDAO {
+public class AccesoDAO {
     
     private Session session; //Contiene los Querys
     private Transaction tx; // Ejecuta los Querys
