@@ -19,7 +19,7 @@
         <div class="container">
             <ul id="nav">
                 <li><a href="index.jsp">Inicio</a></li>
-                <li><a href="Agregar_Administrador.jsp">Agregar</a>        
+                <li><a href="Agregar_Administrador.jsp">Agregar Administrador</a>        
                 </li>
                 <li class="active"><a href="#s2">Menu 2</a>
                     <span id="s2"></span>
