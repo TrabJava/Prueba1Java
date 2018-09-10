@@ -16,7 +16,7 @@ import modelo.dto.Usuario;
 
 /**
  *
- * @author duoc
+ * @author Artiko1
  */
 public class ServletUsuario extends HttpServlet {
 
@@ -31,23 +31,43 @@ public class ServletUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        try {
+         try {
             //Recibimos los parametros del formulario
-            String user= request.getParameter("txtUser");
-            String pass= request.getParameter("txtPass");
+            String user= request.getParameter("txtNombreUsuario");
+            String pass= request.getParameter("txtPassword");
             
             //Validamos DTO
-            Usuario usuario = new Usuario(user,pass);
+            Usuario usuario = new Usuario(user, pass);
             
             //Validadmos el Usuario
             UsuarioDAO dao= new UsuarioDAO();
             Usuario aux = dao.buscar(usuario.getNombreUsuario(), usuario.getContrasenia());
             
-        } catch (Exception e) {
+            //validamos el tipo de usuario
+            if (aux.getTipoUsuario().getDescripcionTipoUsuario().equals("superusuario")){
+              //redireccion
+              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
+              request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
+              response.sendRedirect("Vistas/SuperUsuario/index.jsp");
+            }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("administrador")){
+              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
+              request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
+              response.sendRedirect("Vistas/Administrador/index.jsp");
+            }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("usuario")){
+              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
+              request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
+              response.sendRedirect("Vistas/Usuario_Coach/index.jsp");
+            }else{
+                request.getSession().setAttribute("mensaje", "Error");
+                response.sendRedirect("login.jsp");
+            }
+            
+        } catch (Exception ex) {
+            response.sendRedirect("login.jsp");
         }
         
+        
+    
         
     }
 
