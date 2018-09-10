@@ -25,7 +25,7 @@ public class UsuarioDAO {
     public Usuario buscar(String user,String pass){
         try {
            iniOperaciones();
-            List<Usuario> lista = session.createQuery("from usuario where nombre_usuario='"+ user +"' and contrasenia='"+ pass +"'").list();
+            List<Usuario> lista = session.createQuery("from Usuario where nombre_usuario='"+ user +"' and contrasenia='"+ pass +"'").list();
             for (Usuario aux : lista) {
                 if (aux.getNombreUsuario().equals(user) && aux.getContrasenia().equals(pass)) {
                     return aux;
