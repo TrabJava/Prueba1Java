@@ -87,6 +87,11 @@ public class Usuario  implements java.io.Serializable {
         this.equipos = equipos;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", estadoUsuario=" + estadoUsuario + ", tipoUsuario=" + tipoUsuario + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia + ", equipos=" + equipos + '}';
+    }
+
 
 
 
