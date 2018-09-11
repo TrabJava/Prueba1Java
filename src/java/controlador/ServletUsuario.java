@@ -74,10 +74,11 @@ public class ServletUsuario extends HttpServlet {
             }
 
         } catch (Exception e) {
-            request.getSession().setAttribute("msjNO", "Erro:" + e.getMessage());
+            request.getSession().setAttribute("msjNO", "Error:" + e.getMessage());
 
         } finally {
-            response.sendRedirect("index.php");
+            response.sendRedirect("Administrador_Agregar.jsp"
+                    + "");
         }
 
     }
