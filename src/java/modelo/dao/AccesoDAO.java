@@ -35,7 +35,7 @@ public class AccesoDAO {
         } catch (Exception e) {
            tx.rollback();
            session.close();
-           throw new RuntimeException("Error:  " + e.getMessage());
+           throw new RuntimeException("Error :  " + e.getMessage());
         }
         return null;
     }
