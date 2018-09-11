@@ -8,10 +8,6 @@
         <servlet-name>ServletUsuario</servlet-name>
         <servlet-class>controlador.ServletUsuario</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ServletEquipo</servlet-name>
-        <servlet-class>controlador.ServletEquipo</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAcceso</servlet-name>
         <url-pattern>/procesoAcceso</url-pattern>
@@ -20,16 +16,12 @@
         <servlet-name>ServletUsuario</servlet-name>
         <url-pattern>/procesoUsuario</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServletEquipo</servlet-name>
-        <url-pattern>/procesoEquipo</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
