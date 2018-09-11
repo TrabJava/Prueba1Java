@@ -21,28 +21,9 @@
                 <li><a href="index.jsp">Inicio</a></li>
                 <li><a href="Agregar_Administrador.jsp">Agregar Administrador</a>        
                 </li>
-                <li class="active"><a href="#s2">Menu 2</a>
-                    <span id="s2"></span>
-                    <ul class="subs">
-                        <li><a href="#">Header c</a>
-                            <ul>
-                                <li><a href="#">Submenu x</a></li>
-                                <li><a href="#">Submenu y</a></li>
-                                <li><a href="#">Submenu z</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Header d</a>
-                            <ul>
-                                <li><a href="#">Submenu x</a></li>
-                                <li><a href="#">Submenu y</a></li>
-                                <li><a href="#">Submenu z</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <li class="active"><a href="Listar_Administrar.jsp">Listar Administrador</a>
                 </li>
-                <li><a href="#">Menu 3</a></li>
-                <li><a href="#">Menu 4</a></li>
-                <li><a href="#">Menu 5</a></li>
+                <li><a href="Desactivar_Administrador.jsp">Desactivar Administrador</a></li>
             </ul>
         </div>
     </body>
