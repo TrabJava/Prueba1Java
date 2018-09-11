@@ -12,12 +12,13 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../../js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+        <link href="js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
-
-        <div class="row centered-form">
+        <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+            <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">

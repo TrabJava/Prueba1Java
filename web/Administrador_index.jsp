@@ -12,12 +12,12 @@
         <meta charset="utf-8" />
         <meta name="author" content="Script Tutorials" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../../js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
 
         <title>Home Administrador</title>
     </head>
     <body>
-        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+        <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
         
         
     </body>

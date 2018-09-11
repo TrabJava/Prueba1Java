@@ -18,10 +18,10 @@
    <body>
         <div class="container">
             <ul id="nav">
-                <li><a href="../../Administrador_index.jsp">Inicio</a></li>
-                <li><a href="../../Administrador_index.jsp">Agregar Administrador</a>        
+                <li><a href="Administrador_index.jsp">Inicio</a></li>
+                <li><a href="Administrador_Agregar.jsp">Agregar Administrador</a>        
                 </li>
-                <li class="active"><a href="*">Listar Administrador</a>
+                <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a>
                 </li>
             </ul>
         </div>
