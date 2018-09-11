@@ -39,7 +39,7 @@ public class UsuarioDAO implements metodosCrud<Usuario>{
         } catch (Exception e) {
             tx.rollback();
             sesion.close();
-            throw new RuntimeException("No se pudo almacenar el usuario" + e.getMessage());
+            throw new RuntimeException("No se pudo almacenar el usuario ");
         }
     }
 
