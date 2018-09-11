@@ -41,6 +41,8 @@ public class Equipo  implements java.io.Serializable {
        this.partidosForEquipo1 = partidosForEquipo1;
        this.premios = premios;
     }
+    
+    
    
     public Integer getIdEquipo() {
         return this.idEquipo;
