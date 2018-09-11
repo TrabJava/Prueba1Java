@@ -37,27 +37,29 @@ public class ServletUsuario extends HttpServlet {
         if (opcion.equals("Agregar")) {
             agregar(request, response);
         }
-        /*if (opcion.equals("Eliminar")) {
-            eliminar(request, response);
-        }
         if (opcion.equals("Listar")) {
             listar(request, response);
         }
+        /*if (opcion.equals("Eliminar")) {
+            eliminar(request, response);
+        }
+        
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
-*/
+         */
     }
-        private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             //Recibimos los datos del formulario
             String nombre = request.getParameter("txtNombreUsuario");
             String contra = request.getParameter("txtPassword");
-            int tipoUsuario = Integer.parseInt(request.getParameter("txtTipoUsuario"));
-            int estadoUsuario = Integer.parseInt(request.getParameter("txtEstadoUsuario"));
+            int tipoUsuario = 2;
+            int estadoUsuario = 1;
 
             //Validamos a nivel de modelo (DTO)
-            Usuario usuario = new Usuario(estadoUsuario, tipoUsuario, nombre, contra);
+            Usuario usuario = new Usuario(nombre, contra);
 
             //Llamamos al dao que tiene los metodos
             UsuarioDAO dao = new UsuarioDAO();
@@ -72,16 +74,31 @@ public class ServletUsuario extends HttpServlet {
             }
 
         } catch (Exception e) {
-            request.getSession().setAttribute("msjNO", "Erro:"+e.getMessage());
-            
-        }finally{
+            request.getSession().setAttribute("msjNO", "Erro:" + e.getMessage());
+
+        } finally {
             response.sendRedirect("index.php");
         }
 
     }
-        
-    
 
+    private void listar(HttpServletRequest request, HttpServletResponse response) {
+     
+        
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -122,7 +139,5 @@ public class ServletUsuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    
 
 }
