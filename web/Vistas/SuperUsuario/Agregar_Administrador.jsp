@@ -17,48 +17,46 @@
     </head>
     <body>
         <jsp:include page="Menu.jsp"></jsp:include>
-  
 
-        <div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <center>
-                            <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
-                        </center>
-                    </div>
-                    
-                    <div class="panel-body">
-                        <form role="form">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                    <div class="form-group">
-                                        <input type="text" name="txtNombreUsuario" id="first_name" class="form-control input-sm" placeholder="Nombre de Usuario">
-                                    </div>
-                                </div>                               
+
+            <div class="row centered-form">
+                <form action="procesoUsuario" method="GET">
+                    <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>
+                                    <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
+                                </center>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-5">
-                                    <div class="form-group">
-                                        <input type="password" name="txtPassword" id="password" class="form-control input-sm" placeholder="Contraseña">
-                                    </div>
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                        <div class="form-group">
+                                            <input type="text" name="txtNombreUsuario" id="first_name" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                        </div>
+                                    </div>                               
                                 </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
+                                        <div class="form-group">
+                                            <input type="password" name="txtPassword" id="password" class="form-control input-sm" required="" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <input type="hidden" name="txtTipoUsuario" value="2" class="boton">
+                                <input type="hidden" name="txtEstadoUsuario" value="1" class="boton">
+                                <input type="submit" name="btnAccion" value="Agregar" class="boton">
+
 
                             </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-5">
-                                    <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contraseña">
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="submit" name="btnAccion" value="Agregar" class="boton">
-                            <input type="hidden" name="txtTipoUsuario" value="2" class="boton">
-                            <input type="hidden" name="txtEstadoUsuario" value="1" class="boton">
-                        </form>
+
+                        </div>
                     </div>
-                </div>
-            </div>
+                </form>
+            ${msjOK}
+            ${msjNO}
         </div>
     </body>
 </html>
