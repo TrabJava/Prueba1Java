@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.UsuarioDAO;
+import modelo.dto.Usuario;
 
 /**
  *
@@ -29,21 +31,59 @@ public class ServletUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletUsuario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletUsuario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
+        String opcion = request.getParameter("btnAccion");
+
+        if (opcion.equals("Agregar")) {
+            agregar(request, response);
+        }
+        /*if (opcion.equals("Eliminar")) {
+            eliminar(request, response);
+        }
+        if (opcion.equals("Listar")) {
+            listar(request, response);
+        }
+        if (opcion.equals("Modificar")) {
+            modificar(request, response);
+        }
+*/
+    }
+        private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            //Recibimos los datos del formulario
+            String nombre = request.getParameter("txtNombreUsuario");
+            String contra = request.getParameter("txtPassword");
+            int tipoUsuario = Integer.parseInt(request.getParameter("txtTipoUsuario"));
+            int estadoUsuario = Integer.parseInt(request.getParameter("txtEstadoUsuario"));
+
+            //Validamos a nivel de modelo (DTO)
+            Usuario usuario = new Usuario(estadoUsuario, tipoUsuario, nombre, contra);
+
+            //Llamamos al dao que tiene los metodos
+            UsuarioDAO dao = new UsuarioDAO();
+
+            //Agregamos el alumno a la BD
+            if (dao.agregar(usuario)) {
+                //variable de sesion (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjOK", "Administrador agregado");
+            } else {
+                //variable de sesion (nombre de la variable,contendio)
+                request.getSession().setAttribute("msjNO", "Administrador no agregado");
+            }
+
+        } catch (Exception e) {
+            request.getSession().setAttribute("msjNO", "Erro:"+e.getMessage());
+            
+        }finally{
+            response.sendRedirect("index.php");
+        }
+
+    }
+        
+    
+
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -82,5 +122,7 @@ public class ServletUsuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
