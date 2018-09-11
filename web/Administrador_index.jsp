@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 09-09-2018, 20:46:21
+    Document   : indexAdministrador
+    Created on : 11-09-2018, 18:09:39
     Author     : Artiko1
 --%>
 
@@ -13,9 +13,12 @@
         <meta name="author" content="Script Tutorials" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../../js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+
         <title>Home Administrador</title>
     </head>
     <body>
-        <jsp:include page="Menu.jsp"></jsp:include>
+        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+        
+        
     </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : menu
-    Created on : 11-09-2018, 16:22:00
-    Author     : Artiko1
+    Document   : Menu
+    Created on : 10-09-2018, 17:39:49
+    Author     : Berni
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,15 +16,13 @@
         <title>Menu SuperUsuario</title>
     </head>
    <body>
-       
         <div class="container">
             <ul id="nav">
-                <li><a href="index.jsp">Inicio</a></li>
-                <li><a href="Agregar_Administrador.jsp">Agregar Administrador</a>        
+                <li><a href="../../Administrador_index.jsp">Inicio</a></li>
+                <li><a href="../../Administrador_index.jsp">Agregar Administrador</a>        
                 </li>
-                <li class="active"><a href="Listar_Administrar.jsp">Listar Administrador</a>
+                <li class="active"><a href="*">Listar Administrador</a>
                 </li>
-                <li><a href="Desactivar_Administrador.jsp">Desactivar Administrador</a></li>
             </ul>
         </div>
     </body>

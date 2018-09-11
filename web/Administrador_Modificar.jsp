@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 09-09-2018, 20:47:59
-    Author     : Artiko1
+    Document   : Administrador_Modificar
+    Created on : 11-09-2018, 18:38:54
+    Author     : Berni
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Usuario Coach</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola Usuario Coach</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
