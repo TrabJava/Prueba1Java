@@ -5,7 +5,7 @@
  */
 package test;
 
-import modelo.dao.UsuarioDAO;
+import modelo.dao.AccesoDAO;
 import modelo.dto.Usuario;
 
 /**
@@ -18,7 +18,7 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        UsuarioDAO dao = new UsuarioDAO();
+        AccesoDAO dao = new AccesoDAO();
         Usuario usuario = dao.buscar("artiko", "12345");
         System.out.println(usuario.toString());
     }
