@@ -53,6 +53,8 @@
                                 </div>
                             </div>
                             <input type="submit" name="btnAccion" value="Agregar" class="boton">
+                            <input type="hidden" name="txtTipoUsuario" value="2" class="boton">
+                            <input type="hidden" name="txtEstadoUsuario" value="1" class="boton">
                         </form>
                     </div>
                 </div>
