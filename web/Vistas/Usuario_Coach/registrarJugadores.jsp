@@ -12,43 +12,86 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
-
     <head>
-        <title>Gaming Login Form Responsive Widget Template  :: w3layouts</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Gaming Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"/>
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <link href="login/css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../../js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
+        <title>JSP Page</title>
     </head>
     <body>
-        <div class="padding-all">
-            <div class="header">
-                <h1><img src="./images/5.png" alt=" "> Registrar Jugador</h1>
-            </div>
+        <jsp:include page="menu.jsp"></jsp:include>
 
-            <div class="design-w3l">
-                <div class="mail-form-agile">
-                    <form action="#" method="post">
-                        <input type="text" name="txtRut" placeholder="Ingrese Rut" required=""/>
-                        <input type="text" name="txtNombreJugador" placeholder="Ingrese Nombre" required=""/>     
-                        <input type="text" name="txtApellidoJugador" placeholder="Ingrese Contraseña" required=""/>        
-                        <select id ="idEquipo">
-                            <option value = "1"></option>
-                            <option value = "2">  </option>
-                        </select>
-                        <br>
-                        <br>
-                        <input type="submit" value="Registrar" id="btnAgregar" class="btnAgregar">
-                    </form>
-                </div>
-                <div class="clear"> </div>
-            </div>
 
-            <div class="footer">
-                <p>? 2017 Gaming Login form. All Rights Reserved | Design by  <a href="https://w3layouts.com/" >  w3layouts </a></p>
-            </div>
+            <div class="row centered-form">
+                <form action="procesoUsuario" method="GET">
+                    <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>
+                                    <h3 class="panel-title"><strong>Agregar jugador al equipo</strong> <small>Para usuario(coach)</small></h3>
+                                </center>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                        <div class="form-group">
+                                            <input type="text" name="txtRutJugador"  class="form-control input-sm" required="" placeholder="Rut del jugador">
+                                        </div>
+                                    </div>                               
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
+                                        <div class="form-group">
+                                              <input type="text" name="txtNombreJugador"  class="form-control input-sm" required="" placeholder="Nombre del jugador">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                 <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
+                                        <div class="form-group">
+                                              <input type="text" name="txtApellidoJugador"  class="form-control input-sm" required="" placeholder="Apellido del jugador">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                     <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
+                                        <div class="form-group">
+                                              <input type="text" name="txtIdEquipo"  class="form-control input-sm" required="" >
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-5">
+                                        <div class="form-group">
+                                            <select name="">
+                                                <option>Titular</option>
+                                                <option>No Titular</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                </div>
+                                <input type="hidden" name="txtTipoUsuario" value="2" class="boton">
+                                <input type="hidden" name="txtEstadoUsuario" value="1" class="boton">
+                                <input type="submit" name="btnAccion" value="Agregar" class="boton">
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            ${msjOK}
+            ${msjNO}
         </div>
     </body>
 </html>
+
