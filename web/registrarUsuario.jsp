@@ -1,15 +1,10 @@
 <%-- 
-    Document   : login
-    Created on : 04-sep-2018, 13:23:49
-    Author     : Duoc
+    Document   : registrarUsuario
+    Created on : 11-09-2018, 18:12:08
+    Author     : Artiko1
 --%>
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -50,4 +45,3 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </body>
 </html>
-
