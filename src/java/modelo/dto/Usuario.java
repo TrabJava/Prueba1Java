@@ -40,13 +40,7 @@ public class Usuario  implements java.io.Serializable {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
     }
-
-
-   
-
-
-
-   
+ 
     public Integer getIdUsuario() {
         return this.idUsuario;
     }
