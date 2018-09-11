@@ -6,6 +6,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,11 +21,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="root" password=""></sql:setDataSource>
-         
-        <sql:query var="ligas" dataSource="${dataSource}">
-            SELECT id_liga, descripcion_liga FROM liga
-        </sql:query>
+        <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+         url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
+         user = "root"  password = ""/>
+        
+        <sql:query dataSource = "${snapshot}" var = "result">
+            SELECT id_liga, descripcion_liga FROM liga;
+         </sql:query>
 
         <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
@@ -49,8 +55,8 @@
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
                                           <select name="cboID" >
-                                <c:forEach var="vari" items="${ligas.rows}">
-                                    <option value="${vari.id_liga}">${vari.descripcion_liga}</option>
+                                <c:forEach var = "row" items = "${result.rows}">
+                                    <option value="${row.id_liga}">${row.descripcion_liga}</option>
                                 </c:forEach>
                             </select>
                                     </div>
