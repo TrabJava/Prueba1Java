@@ -98,7 +98,7 @@ public class equipoDAO implements metodosCrud<Equipo>{
     }
 
     @Override
-    public List<Equipo> listarTodo(Object g) {
+    public List<Equipo> listarTodo() {
         try {
             iniOperacion();
             List<Equipo> lista = sesion.createQuery("from Equipo").list();
@@ -109,5 +109,10 @@ public class equipoDAO implements metodosCrud<Equipo>{
             throw new RuntimeException("No se pudo listar los Equipos");
         }
     
+    }
+
+    @Override
+    public boolean actualizarEstado(Equipo g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
