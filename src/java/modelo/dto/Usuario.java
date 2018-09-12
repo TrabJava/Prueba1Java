@@ -20,6 +20,18 @@ public class Usuario implements java.io.Serializable {
         
     }
 
+    public Usuario(Integer idUsuario, EstadoUsuario estadoUsuario) {
+        this.idUsuario = idUsuario;
+        this.estadoUsuario = estadoUsuario;
+    }
+
+    public Usuario(Integer idUsuario, EstadoUsuario estadoUsuario, TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia) {
+        this.idUsuario = idUsuario;
+        this.estadoUsuario = estadoUsuario;
+        this.tipoUsuario = tipoUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+    }
     
     
     
@@ -42,6 +54,8 @@ public class Usuario implements java.io.Serializable {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
     }
+
+   
 
 
 
