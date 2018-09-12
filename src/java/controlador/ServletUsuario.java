@@ -74,7 +74,7 @@ public class ServletUsuario extends HttpServlet {
             int estadoUsuario = 2;
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
             // Validamos a nivel de modelo(DTO)
-            Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario(id, estado);
             // LLamamos al dao que tiene los metodos
             UsuarioDAO dao = new UsuarioDAO();
 
@@ -102,7 +102,6 @@ public class ServletUsuario extends HttpServlet {
             int estadoUsuario = 1;
             TipoUsuario tipo = new TipoUsuario(tipoUsuario);
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
-
             //Validamos a nivel de modelo (DTO)
             Usuario usuario = new Usuario(estado, tipo, nombre, contra);
 
@@ -119,21 +118,20 @@ public class ServletUsuario extends HttpServlet {
             }
 
         } catch (Exception e) {
-            request.getSession().setAttribute("msjNO", "Error:" + e.getMessage());
+            request.getSession().setAttribute("msjNO", "Error: ");
 
         } finally {
             response.sendRedirect("Administrador_Agregar.jsp ");
         }
-
     }
     
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             // Recibimos el formulario
-            int id = Integer.parseInt(request.getParameter("txtID"));
+            int id = Integer.parseInt(request.getParameter("txtId"));
             String nombre = request.getParameter("txtNombreUsuario");
             String contra = request.getParameter("txtPassword");
-            int tipoUsuario =Integer.parseInt("");
+            int tipoUsuario =Integer.parseInt("cbo");
             int estadoUsuario =Integer.parseInt("");
             TipoUsuario tipo = new TipoUsuario(tipoUsuario);
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
@@ -196,6 +194,8 @@ public class ServletUsuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
     
 
