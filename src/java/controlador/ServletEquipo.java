@@ -11,8 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.equipoDAO;
 import modelo.dto.Equipo;
 import modelo.dto.Liga;
+import modelo.dto.Usuario;
 
 /**
  *
@@ -48,17 +50,34 @@ public class ServletEquipo extends HttpServlet {
            modificar(request, response);
         }
     }
-     private void agregar(HttpServletRequest request, HttpServletResponse response) {
+     private void agregar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
          try {
             //Recibimos el formulario
             String nombreEquipo = request.getParameter("txtNombreEquipo");
             int id_liga = Integer.parseInt(request.getParameter("cboLiga"));
-            String logotipo = request.getParameter("txtLogo");
-            int id_Usuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+            String logotipo = request.getParameter("fileLogo");
+            int id_Usuario = Integer.parseInt(request.getParameter("txtIdEquipo"));
             //Validamos a nivel de modelo(DTO)
-            Equipo equipo = new Equipo(new Liga(id_liga), usuario, nombreEquipo, logotipo);
+            Liga liga = new Liga(id_liga);
+            Usuario usuario = new Usuario(id_Usuario);
+            
+            Equipo equipo = new Equipo(liga, usuario, nombreEquipo, logotipo);
+            //llamamos al dao que tiene los metodos
+            equipoDAO dao = new equipoDAO();
+            
+            //agregamos al equipo a la base de datos
+            if(dao.agregar(equipo)){
+             //Variable de sesion (nombre de la variable, contenido )
+             request.getSession().setAttribute("msjOK", "Equipo Agregado");
+            }else{
+            //Variable de session(nombre de la variable, contenido)
+            request.getSession().setAttribute("msjNO", "Equipo no Agregado");
+            }
          } catch (Exception e) {
-        }
+            request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
+         }finally{
+           response.sendRedirect("index.jsp");
+         }
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) {
