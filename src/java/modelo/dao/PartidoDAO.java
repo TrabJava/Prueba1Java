@@ -97,7 +97,7 @@ public class PartidoDAO implements metodosCrud<Partido>{
     }
 
     @Override
-    public List<Partido> listarTodo(Object g) {
+    public List<Partido> listarTodo() {
         try {
             iniOperaciones();
             List<Partido> lista = sesion.createQuery("from Alumno").list();
@@ -108,6 +108,11 @@ public class PartidoDAO implements metodosCrud<Partido>{
             throw new RuntimeException("No se pudo listar los Partidos");
         }
    
+    }
+
+    @Override
+    public boolean actualizarEstado(Partido g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
