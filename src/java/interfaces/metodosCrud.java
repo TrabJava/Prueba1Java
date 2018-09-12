@@ -15,6 +15,7 @@ public interface metodosCrud<Generico> {
     //Metodos CRUD
     public boolean agregar (Generico g);
     public boolean actualizar (Generico g);
+    public boolean actualizarEstado (Generico g);
     public boolean eliminar (Object o);
     public Generico buscar (Object o);
     public List<Generico> listarTodo  (Object g);
