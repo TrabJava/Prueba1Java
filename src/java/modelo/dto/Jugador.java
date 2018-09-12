@@ -22,6 +22,21 @@ public class Jugador  implements java.io.Serializable {
         this.rutJugador = rutJugador;
     }
 
+    public Jugador(Equipo equipo, Titular titular, String nombreJugador, String apellidoJugador) {
+        this.equipo = equipo;
+        this.titular = titular;
+        this.nombreJugador = nombreJugador;
+        this.apellidoJugador = apellidoJugador;
+    }
+
+    public Jugador(String rutJugador, Equipo equipo, Titular titular, String nombreJugador, String apellidoJugador) {
+        this.rutJugador = rutJugador;
+        this.equipo = equipo;
+        this.titular = titular;
+        this.nombreJugador = nombreJugador;
+        this.apellidoJugador = apellidoJugador;
+    }
+
     
 
     public String getRutJugador() {
