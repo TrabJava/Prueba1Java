@@ -33,16 +33,15 @@
                         for (Jugador aux: dao.listarTodo()) {
                         %>
                         <tr>
-                            
+                        <form action="procesoJugador" method="GET">
                             <td><input type="text" name="txtRut" readonly="" value="<%= aux.getRutJugador()%>"></td>
                             <td><input type="text" name="txtNombreJugador" readonly=""  value="<%= aux.getNombreJugador()%>"></td>
                             <td><input type="text" name="txtApellidoJugador" readonly=""  value="<%= aux.getApellidoJugador()%>"></td>
                             <td><input type="text" name="txtNombreEquipo" readonly=""  value="<%= aux.getEquipo().getNombreEquipo() %>"></td>
                             <td><input type="text" name="txtNombreTitular" readonly=""  value="<%= aux.getTitular().getDescripcionTitular()%>"></td>
                             <td><a href="Jugador_Modificar.jsp?id=<%= aux.getRutJugador()%>" id="url">Modificar</a></td>
-                            <td><a href="Jugador_Modificar.jsp?id=<%= aux.getRutJugador()%>">Eliminar</a></td>
-                            <td><input type="submit" name="btnEliminar" value="Eliminar"></td>
-                            
+                            <td><input type="submit" name="btnAccion" value="Eliminar"></td>
+                        </form>
                             
                         </tr>
                         <% } %>
