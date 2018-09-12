@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.JugadorDAO;
+import modelo.dto.Equipo;
+import modelo.dto.Jugador;
+import modelo.dto.Titular;
 
 /**
  *
@@ -30,17 +34,21 @@ public class ServletJugador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletJugador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletJugador at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        //Recibimos el boton del formulario
+        String opcion = request.getParameter("btnAccion");
+        //Cual accion se ejecuta
+        if(opcion.equals("Agregar")){
+          agregar(request, response);
+        }
+        if(opcion.equals("Eliminar")) {
+            eliminar(request, response);
+        }
+        if(opcion.equals("Listar")){
+           listar(request, response);
+        }
+        if(opcion.equals("Modificar")){
+          modificar(request, response);
         }
     }
 
@@ -82,5 +90,48 @@ public class ServletJugador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void agregar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+       try {
+            //recibimos el formulario
+            String rutJugador = request.getParameter("txtRutJugador");
+            String nombreJugador = request.getParameter("txtNombreJugador");
+            String apellidoJugador = request.getParameter("txtApellidoJugador");
+            int idEquipo = Integer.parseInt(request.getParameter("txtIdEquipo"));
+            int idTitular = Integer.parseInt(request.getParameter("cboTitular"));
+            //Validamos a nivel de modelo(DTO)
+            Equipo equipo = new Equipo(idEquipo);
+            Titular titular = new Titular(idTitular);
+            Jugador jugador = new Jugador(rutJugador, equipo, titular, nombreJugador, apellidoJugador);
+            
+            //llamamos al dao que tiene los metodos
+            JugadorDAO dao = new JugadorDAO();
+            
+            //agregamos al equipo a la base de datos
+            if(dao.agregar(jugador)){
+             //Variable de sesion (nombre de la variable, contenido)
+             request.getSession().setAttribute("msjOK", "Jugador Agregado");
+            }else{
+             //Variable de session(nombre de la variable, contenido)
+             request.getSession().setAttribute("msjNO", "Jugador no Agregado");
+            }
+        } catch (Exception e) {
+            request.getSession().setAttribute("msjNo", "Error: "+ e.getMessage());
+        }finally{
+          response.sendRedirect("index.jsp");
+        }
+    }
+
+    private void eliminar(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void listar(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void modificar(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
