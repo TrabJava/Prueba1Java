@@ -48,14 +48,15 @@ public class ServletUsuario extends HttpServlet {
         if (opcion.equals("Desactivar")) {
             actualizarEstado(request, response);
         }
+        if (opcion.equals("Modificar")) {
+            modificar(request, response);
+        }
         /*
         if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
         
-        if (opcion.equals("Modificar")) {
-            modificar(request, response);
-        }
+        
          */
     }
 
@@ -69,10 +70,11 @@ public class ServletUsuario extends HttpServlet {
     private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Recibimos el formulario
         try {
+            int id=Integer.parseInt("txtId");
             int estadoUsuario = 2;
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
             // Validamos a nivel de modelo(DTO)
-            Usuario usuario = new Usuario(estado);
+            Usuario usuario = new Usuario();
             // LLamamos al dao que tiene los metodos
             UsuarioDAO dao = new UsuarioDAO();
 
@@ -124,6 +126,37 @@ public class ServletUsuario extends HttpServlet {
         }
 
     }
+    
+    private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            // Recibimos el formulario
+            int id = Integer.parseInt(request.getParameter("txtID"));
+            String nombre = request.getParameter("txtNombreUsuario");
+            String contra = request.getParameter("txtPassword");
+            int tipoUsuario =Integer.parseInt("");
+            int estadoUsuario =Integer.parseInt("");
+            TipoUsuario tipo = new TipoUsuario(tipoUsuario);
+            EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
+            
+            // Validamos a nivel de modelo(DTO)
+            Usuario usuario = new Usuario();
+            // LLamamos al dao que tiene los metodos
+            UsuarioDAO dao = new UsuarioDAO();
+
+            // Agregamos el alumno a la BD
+            if (dao.actualizar(usuario)) {
+                // Variable de session (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjOK", "Usuario Modificado");
+            } else {
+                // Variable de session (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjNO", "Usuario No Modificado");
+            }
+        } catch (Exception e) {
+            request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
+        } finally {
+            response.sendRedirect("Administrador_Modificar.jsp");
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -163,5 +196,7 @@ public class ServletUsuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
