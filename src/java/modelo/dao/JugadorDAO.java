@@ -97,7 +97,7 @@ public class JugadorDAO implements metodosCrud<Jugador>{
     }
 
     @Override
-    public List<Jugador> listarTodo(Object g) {
+    public List<Jugador> listarTodo() {
         try {
             iniOperacion();
             List<Jugador>lista = sesion.createQuery("from Jugador").list();
@@ -107,5 +107,10 @@ public class JugadorDAO implements metodosCrud<Jugador>{
             sesion.close();
             throw new RuntimeException("No se pudo listar los Jugadores");
         }
+    }
+
+    @Override
+    public boolean actualizarEstado(Jugador g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
