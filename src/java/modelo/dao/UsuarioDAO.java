@@ -102,7 +102,7 @@ public class UsuarioDAO implements metodosCrud<Usuario>{
     }
 
     @Override
-    public List<Usuario> listarTodo(Object g) {
+    public List<Usuario> listarTodo() {
         try {
             iniOperacion();
             List<Usuario> list = sesion.createQuery("from Usuario").list();
