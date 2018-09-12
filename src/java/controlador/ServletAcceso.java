@@ -54,9 +54,10 @@ public class ServletAcceso extends HttpServlet {
               request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
               response.sendRedirect("index.jsp");
             }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("usuario")){
+                request.getSession().setAttribute("idUsuario", usuario.getIdUsuario());
               request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
               request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
-              response.sendRedirect("index.jsp");
+              response.sendRedirect("Jugador_registrar.jsp");
             }else{
                 request.getSession().setAttribute("mensaje", "Error");
                 response.sendRedirect("login.jsp");
