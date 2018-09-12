@@ -43,12 +43,15 @@
         <div class="container">
             <h1>Modificar Registro</h1>
             <hr>
-            <form action="procesoJugador" method="GET" class="form-control" style="width: 500px; height: 400px">
+            <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
                 ID Equipo:
                 <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
                 Nombre Equipo:
                 <input type="text" name="txtNombreEquipo" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/><br>
- 
+                
+                <input type="hidden" readonly="" name="txtLogo" value="<%= rs.getString("logo_equipo")%>">
+                <input type="hidden" readonly="" name="txtIdUsuario" value="<%= rs.getString("id_usuario")%>">
+                
                 Liga:
                 <select name="cboLiga" >
                                 <%
