@@ -33,21 +33,39 @@
             String id = request.getParameter("id");
             ps = con.prepareStatement("select * from jugador where rut_jugador=" + id);
             rs = ps.executeQuery();
+            
+            PreparedStatement pre;
+            ResultSet rset;
+            pre = con.prepareStatement("select * from titular");
+            rset = pre.executeQuery();
             while (rs.next()) {
         %>
         <div class="container">
             <h1>Modificar Registro</h1>
             <hr>
-            <form action="" method="post" class="form-control" style="width: 500px; height: 400px">
-                ID:
-                <input type="text" readonly="" class="form-control" value="<%= rs.getString("rut_jugador")%>"/>
-                Nombres:
-                <input type="text" name="txtNom" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/><br>
+            <form action="procesoJugador" method="GET" class="form-control" style="width: 500px; height: 400px">
+                RUT:
+                <input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/>
+                Nombre:
+                <input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/><br>
 
-                DNI:
-                <input type="text" name="txtDNI" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/>
+                Apellido:
+                <input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/>
+                 
+                Equipo:
+                <input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getInt("id_equipo")%>"/>
+                  
+                Titular:
+                <select name="cboTitular" >
+                                <%
+                                   while (rset.next()) {%>
+                                    <option value="<%= rset.getInt("id_titular")%>"><%= rset.getString("descripcion_titular")%></option>
+                                            <%}
+                                %>
+                            </select>
+               
                 <br>
-                <input type="submit" value="Guardar" class="btn btn-primary btn-lg"/>
+                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary btn-lg"/>
 
                 <a href="index.jsp">Regresar</a>
             </form>
