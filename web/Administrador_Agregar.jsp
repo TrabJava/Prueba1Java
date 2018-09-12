@@ -17,14 +17,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-                       url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
-                       user = "root"  password = ""/>
-    <sql:query dataSource = "${snapshot}" var = "result">
-        SELECT id_tipo, descripcion_liga FROM liga;
-    </sql:query>
-
-
     <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
         <div class="row centered-form">
             <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
