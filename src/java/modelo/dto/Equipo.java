@@ -24,6 +24,11 @@ public class Equipo  implements java.io.Serializable {
     public Equipo() {
     }
 
+    public Equipo(Integer idEquipo) {
+        this.idEquipo = idEquipo;
+    }
+    
+
 	
     public Equipo(Liga liga, Usuario usuario, String nombreEquipo, String logoEquipo) {
         this.liga = liga;
