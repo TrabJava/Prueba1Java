@@ -5,10 +5,15 @@
  */
 package modelo.dao;
 
+
 import interfaces.metodosCrud;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import modelo.dto.Usuario;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
@@ -28,6 +33,7 @@ public class UsuarioDAO implements metodosCrud<Usuario>{
     tx = sesion.beginTransaction();
     
     }
+
     @Override
     public boolean agregar(Usuario g) {
         try {
@@ -107,4 +113,22 @@ public class UsuarioDAO implements metodosCrud<Usuario>{
             throw  new RuntimeException("No se pudo listar los Usuario: " + e.getMessage());
         }
     }
+
+    
+    public boolean actualizarEstado(Usuario g) {
+        try {
+            iniOperacion();
+            Usuario usu = buscar(g.getIdUsuario());
+            usu.setEstadoUsuario(g.getEstadoUsuario());
+            sesion.update(usu);
+            tx.commit();
+            sesion.close();
+            return true;
+        } catch (Exception e) {
+            tx.rollback();
+            sesion.close();
+            throw new RuntimeException("No se pudo actualizar el Usuario");
+        }
+    }
+    
 }
