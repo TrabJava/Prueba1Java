@@ -26,6 +26,15 @@ public class EstadoUsuario  implements java.io.Serializable {
        this.descripcionEstadoUsuario = descripcionEstadoUsuario;
        this.usuarios = usuarios;
     }
+    public EstadoUsuario(int estadoUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public EstadoUsuario(Integer idEstadoUsuario) {
+        this.idEstadoUsuario = idEstadoUsuario;
+    }
+
+    
    
     public Integer getIdEstadoUsuario() {
         return this.idEstadoUsuario;
