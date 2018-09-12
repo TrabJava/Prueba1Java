@@ -28,13 +28,16 @@
         <sql:query dataSource = "${snapshot}" var = "result">
             SELECT id_liga, descripcion_liga FROM liga;
          </sql:query>
+           <sql:query dataSource = "${snapshot}" var = "sesion">
+            SELECT id_usuario FROM usuario WHERE nombre_usuario="${usuario}";
+         </sql:query>
 
         <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <center>
-                                <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
+                                <h3 class="panel-title"><strong>Agregar Administrador </strong> <small>Para SuperAdministrador</small></h3>
                             </center>
                         </div>
                         <div class="panel-body">
@@ -46,11 +49,7 @@
                                         </div>
                                     </div>                               
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-5">
-                                        
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
@@ -65,7 +64,17 @@
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
-                                            <input type="text" name="txtNombreEquipo" class="form-control input-sm" required="" placeholder="Nombre equipo">
+                                            <input type="file" name="fileLogo" class="form-control input-sm" required="">
+                                        </div>
+                                    </div>                               
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                        <div class="form-group">
+                                           <c:forEach var = "row" items = "${sesion.rows}">
+                                               <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_usuario}">
+                                        
+                                           </c:forEach>
                                         </div>
                                     </div>                               
                                 </div>
