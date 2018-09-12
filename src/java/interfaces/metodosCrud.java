@@ -18,7 +18,7 @@ public interface metodosCrud<Generico> {
     public boolean actualizarEstado (Generico g);
     public boolean eliminar (Object o);
     public Generico buscar (Object o);
-    public List<Generico> listarTodo  (Object g);
+    public List<Generico> listarTodo();
     
     
     
