@@ -122,7 +122,7 @@ public class ServletJugador extends HttpServlet {
         }
     }
 
-    private void eliminar(HttpServletRequest request, HttpServletResponse response) {
+    private void eliminar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
        try {
             //Recibimos los datos del formulario
             int id = Integer.parseInt(request.getParameter("txtID"));
@@ -144,7 +144,7 @@ public class ServletJugador extends HttpServlet {
        }
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) {
+    private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         //Llamamos al dao para poder listar
         JugadorDAO dao = new JugadorDAO();
         request.getSession().setAttribute("jugador", dao.listarTodo());
@@ -152,7 +152,7 @@ public class ServletJugador extends HttpServlet {
     
     }
 
-    private void modificar(HttpServletRequest request, HttpServletResponse response) {
+    private void modificar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
             //Recibimos el formulario
             String rut = request.getParameter("txtRut");
@@ -162,8 +162,21 @@ public class ServletJugador extends HttpServlet {
             int id_titular = Integer.parseInt(request.getParameter("cboTitular"));
             //Validamos a nivel que tiene los metodos
             Equipo equipo = new Equipo(id_equipo);
+            Titular titular = new Titular(id_titular);
             Jugador jug = new Jugador(nombreJugador, equipo, titular, nombreJugador, apellidoJugador);
+            //Agregar el alumno a la Base de datos
+            JugadorDAO dao = new JugadorDAO();
+            if (dao.actualizar(jug)) {
+                //variable de session(nombre de la variable, contenido)
+                request.getSession().setAttribute("msjOK", "Jugador Modificado");
+            }else{
+                //variable de session (nombre de la variable, contenido)
+                request.getSession().setAttribute("msjNO", "Jugador No Modificado");
+            }
         } catch (Exception e) {
+                request.getSession().setAttribute("msjNO", "Error: "+e.getMessage());
+        } finally{
+                response.sendRedirect("index.jsp");
         }
     
     }
