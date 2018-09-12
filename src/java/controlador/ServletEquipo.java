@@ -123,7 +123,8 @@ public class ServletEquipo extends HttpServlet {
     
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response) {
