@@ -18,6 +18,11 @@ public class Titular  implements java.io.Serializable {
     public Titular() {
     }
 
+    public Titular(Integer idTitular) {
+        this.idTitular = idTitular;
+    }
+    
+    
 	
     public Titular(String descripcionTitular) {
         this.descripcionTitular = descripcionTitular;
