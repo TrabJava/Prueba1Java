@@ -15,7 +15,7 @@
         <link href="../../js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
         <title>Menu SuperUsuario</title>
     </head>
-   <body>
+    <body>
         <div class="container">
             <ul id="nav">
                 <li><a href="">Inicio</a></li>
@@ -23,7 +23,8 @@
                 </li>
                 <li class="active"><a href="Listar_Administrar.jsp">Listar Administrador</a>
                 </li>
-                <li><a href="Desactivar_Administrador.jsp">Desactivar Administrador</a></li>
+                <li><a href="Desactivar_Administrador.jsp">Desactivar Administrador</a></li>          
+                <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
     </body>
