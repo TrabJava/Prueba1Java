@@ -8,17 +8,18 @@ package controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dao.AccesoDAO;
-import modelo.dto.Usuario;
+import modelo.dao.UsuarioDAO;
 
 /**
  *
- * @author Artiko1
+ * @author Berni
  */
-public class ServletAcceso extends HttpServlet {
+@WebServlet(name = "ServletListarAdmin", urlPatterns = {"/procesoListarAdmin"})
+public class ServletListarAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,46 +32,11 @@ public class ServletAcceso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            //Recibimos los parametros del formulario
-            String user= request.getParameter("txtNombreUsuario");
-            String pass= request.getParameter("txtPassword");
-            
-            //Validamos DTO
-            Usuario usuario = new Usuario(user, pass);
-            
-            //Validadmos el Usuario
-            AccesoDAO dao= new AccesoDAO();
-            Usuario aux = dao.buscar(usuario.getNombreUsuario(), usuario.getContrasenia());
-            
-            //validamos el tipo de usuario
-            if (aux.getTipoUsuario().getDescripcionTipoUsuario().equals("superusuario")){
-              //redireccion
-              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
-              request.getSession().setAttribute("tipo", aux.getTipoUsuario().getIdTipoUsuario());
-              response.sendRedirect("Administrador_index.jsp");
-            }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("administrador")){
-              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
-              request.getSession().setAttribute("tipo", aux.getTipoUsuario());
-              request.getSession().setAttribute("estado", aux.getEstadoUsuario());
-              response.sendRedirect("index.jsp");
-            }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("usuario")){
-                request.getSession().setAttribute("idUsuario", usuario.getIdUsuario());
-              request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
-              request.getSession().setAttribute("tipo", usuario.getTipoUsuario().getIdTipoUsuario());
-              response.sendRedirect("Jugador_Listar.jsp");
-            }else{
-                request.getSession().setAttribute("mensaje", "Error");
-                response.sendRedirect("login.jsp");
-            }
-            
-        } catch (Exception ex) {
-            response.sendRedirect("login.jsp");
-        }
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+            UsuarioDAO dao = new UsuarioDAO();
+            request.getSession().setAttribute("administrador", dao.listarTodo());
+            response.sendRedirect("Administrador_Listar.jsp");
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

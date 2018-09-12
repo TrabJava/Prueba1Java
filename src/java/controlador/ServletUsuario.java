@@ -51,21 +51,10 @@ public class ServletUsuario extends HttpServlet {
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
-        /*
-        if (opcion.equals("Eliminar")) {
-            eliminar(request, response);
-        }
-        
-        
-         */
+       
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Llamamos al dao para poder listar
-        UsuarioDAO dao = new UsuarioDAO();
-        request.getSession().setAttribute("usuario", dao.listarTodo());
-        response.sendRedirect("Administrador_Listar.jsp");
-    }
+    
 
     private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Recibimos el formulario
@@ -195,6 +184,10 @@ public class ServletUsuario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void listar(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 
