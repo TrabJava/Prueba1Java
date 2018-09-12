@@ -7,11 +7,14 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.UsuarioDAO;
+import modelo.dto.EstadoUsuario;
+import modelo.dto.TipoUsuario;
 import modelo.dto.Usuario;
 
 /**
@@ -33,14 +36,19 @@ public class ServletUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         String opcion = request.getParameter("btnAccion");
-
-        if (opcion.equals("Agregar")) {
-            agregar(request, response);
-        }
+        
         if (opcion.equals("Listar")) {
             listar(request, response);
         }
-        /*if (opcion.equals("Eliminar")) {
+        
+        if (opcion.equals("Agregar")) {
+            agregar(request, response);
+        }
+        /*
+        if (opcion.equals("Desactivar")) {
+            actualizarEstado(request, response);
+        }
+        if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
         
@@ -50,17 +58,26 @@ public class ServletUsuario extends HttpServlet {
          */
     }
 
+    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+         // Llamamos al dao para poder listar
+        UsuarioDAO dao = new UsuarioDAO();
+        request.getSession().setAttribute("usuario", dao.listarTodo(dao));
+        response.sendRedirect("Administrador_Listar.jsp");
+    }
+    
     private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
+         try {
             //Recibimos los datos del formulario
             String nombre = request.getParameter("txtNombreUsuario");
             String contra = request.getParameter("txtPassword");
             int tipoUsuario = 2;
             int estadoUsuario = 1;
-
+            TipoUsuario tipo=new TipoUsuario(tipoUsuario);
+            EstadoUsuario estado=new EstadoUsuario(estadoUsuario);
+            
             //Validamos a nivel de modelo (DTO)
-            Usuario usuario = new Usuario(nombre, contra);
-
+            Usuario usuario = new Usuario(estado, tipo, nombre, contra);
+            
             //Llamamos al dao que tiene los metodos
             UsuarioDAO dao = new UsuarioDAO();
 
@@ -77,31 +94,38 @@ public class ServletUsuario extends HttpServlet {
             request.getSession().setAttribute("msjNO", "Error:" + e.getMessage());
 
         } finally {
-            response.sendRedirect("Administrador_Agregar.jsp"
-                    + "");
+            response.sendRedirect("Administrador_Agregar.jsp ");
         }
-
+         
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) {
-     
-        
-        
-        
-    }
+    /*
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            // Recibimos el formulario
+            // int id =Integer.parseInt(request.getParameter("id");
+            int tipo = 2;
+            // Validamos a nivel de modelo(DTO)
+            Usuario usuario = new Usuario();
+            // LLamamos al dao que tiene los metodos
+            UsuarioDAO dao = new UsuarioDAO();
+
+            // Agregamos el alumno a la BD
+            if (dao.actualizar(usuario)) {
+                // Variable de session (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjOK", "Alumno Modificado");
+            } else {
+                // Variable de session (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjNO", "Alumno No Modificado");
+            }
+        } catch (Exception e) {
+            request.getSession().setAttribute("msjNO", "Error: " + e.getMessage());
+        } finally {
+            response.sendRedirect("index.jsp");
+        }
+    }
+*/
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
