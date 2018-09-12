@@ -29,11 +29,6 @@
                 <div class="row">
                     <form action="procesoUsuario" method="GET">
                         <div class="col-lg-1">         
-
-                            <div class="form-group text-center">
-                                <input type="submit" name="btnAccion" value="Listar" class="btn btn-info"/>
-                            </div>
-
                         </div>
                         <div class="col-lg-4">
 
@@ -55,7 +50,7 @@
                                 <th>ID ESTADO USUARIO</th>
                             </tr>
                             <%
-                                for (Usuario aux : dao.listarTodo(dao)) {
+                                for (Usuario aux : dao.listarTodo()) {
                             %>
                             <tr>
                             <td><imput type="text" value="txtId"></imput><%= aux.getIdUsuario()%></td>
