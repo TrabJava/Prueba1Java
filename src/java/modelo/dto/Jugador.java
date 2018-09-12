@@ -18,14 +18,12 @@ public class Jugador  implements java.io.Serializable {
     public Jugador() {
     }
 
-    public Jugador(String rutJugador, Equipo equipo, Titular titular, String nombreJugador, String apellidoJugador) {
-       this.rutJugador = rutJugador;
-       this.equipo = equipo;
-       this.titular = titular;
-       this.nombreJugador = nombreJugador;
-       this.apellidoJugador = apellidoJugador;
+    public Jugador(String rutJugador) {
+        this.rutJugador = rutJugador;
     }
-   
+
+    
+
     public String getRutJugador() {
         return this.rutJugador;
     }
@@ -62,7 +60,13 @@ public class Jugador  implements java.io.Serializable {
         this.apellidoJugador = apellidoJugador;
     }
 
-
+    @Override
+    public String toString() {
+        return "Jugador{" + "rutJugador=" + rutJugador + ", equipo=" + equipo + ", titular=" + titular + ", nombreJugador=" + nombreJugador + ", apellidoJugador=" + apellidoJugador + '}';
+    }
+    
+    
+    
 
 
 }
