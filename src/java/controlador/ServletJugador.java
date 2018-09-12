@@ -125,12 +125,12 @@ public class ServletJugador extends HttpServlet {
     private void eliminar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
        try {
             //Recibimos los datos del formulario
-            int id = Integer.parseInt(request.getParameter("txtID"));
+            int id = Integer.parseInt(request.getParameter("txtRut"));
             //Llamamos al dao que tiene los metodos
             JugadorDAO dao = new JugadorDAO();
             
             //Preguntamos si se elimina
-            if (dao.eliminar(dao)) {
+            if (dao.eliminar(id)) {
                //Variable de session (nombre de la variable, contenido)
                request.getSession().setAttribute("msjOK", "Jugador eliminado");
             }else{
@@ -158,12 +158,12 @@ public class ServletJugador extends HttpServlet {
             String rut = request.getParameter("txtRut");
             String nombreJugador = request.getParameter("txtNombreJugador");
             String apellidoJugador = request.getParameter("txtApellidoJugador");
-            int id_equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+            int id_equipo = Integer.parseInt(request.getParameter("txtEquipo"));
             int id_titular = Integer.parseInt(request.getParameter("cboTitular"));
             //Validamos a nivel que tiene los metodos
             Equipo equipo = new Equipo(id_equipo);
             Titular titular = new Titular(id_titular);
-            Jugador jug = new Jugador(nombreJugador, equipo, titular, nombreJugador, apellidoJugador);
+            Jugador jug = new Jugador(rut, equipo, titular, nombreJugador, apellidoJugador);
             //Agregar el alumno a la Base de datos
             JugadorDAO dao = new JugadorDAO();
             if (dao.actualizar(jug)) {
