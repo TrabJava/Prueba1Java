@@ -32,6 +32,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <sql:query dataSource = "${snapshot}" var = "result">
             SELECT id_titular, descripcion_titular FROM titular;
          </sql:query>
+         <sql:query dataSource = "${snapshot}" var = "equipo">
+            SELECT id_equipo FROM equipo WHERE id_usuario=(SELECT id_usuario FROM usuario WHERE nombre_usuario="${usuario}");
+         </sql:query>
 
         <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
@@ -42,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </center>
                         </div>
                         <div class="panel-body">
-                            <form action="procesoUsuario" method="GET">
+                            <form action="procesoJugador" method="GET">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
@@ -66,15 +69,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </div>
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
-                                            <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" placeholder="">
-                                        </div>
+                                        <c:forEach var = "row" items = "${equipo.rows}">
+                                               <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
+                                        
+                                           </c:forEach>
                                     </div>                               
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
-                                          <select name="cboID" >
+                                          <select name="cboTitular" >
                                 <c:forEach var = "row" items = "${result.rows}">
                                     <option value="${row.id_titular}">${row.descripcion_titular}</option>
                                 </c:forEach>
