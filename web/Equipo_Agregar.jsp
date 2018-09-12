@@ -41,7 +41,7 @@
                             </center>
                         </div>
                         <div class="panel-body">
-                            <form action="procesoUsuario" method="GET">
+                            <form action="procesoEquipo" method="GET">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
@@ -53,7 +53,7 @@
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
-                                          <select name="cboID" >
+                                          <select name="cboLiga" >
                                 <c:forEach var = "row" items = "${result.rows}">
                                     <option value="${row.id_liga}">${row.descripcion_liga}</option>
                                 </c:forEach>
@@ -64,7 +64,7 @@
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
-                                            <input type="file" name="fileLogo" class="form-control input-sm" required="">
+                                            <input type="text" name="fileLogo" class="form-control input-sm" required="" >
                                         </div>
                                     </div>                               
                                 </div>
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>                               
                                 </div>
-                                <input type="submit" name="btnAccion" value="Agregar" class="boton">
+                                <input type="submit" name="btnAccion" id="btnAccion" value="Agregar" class="boton">
                             </form>
                         ${msjOK}
                         ${msjNO}
