@@ -123,15 +123,49 @@ public class ServletJugador extends HttpServlet {
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       try {
+            //Recibimos los datos del formulario
+            int id = Integer.parseInt(request.getParameter("txtID"));
+            //Llamamos al dao que tiene los metodos
+            JugadorDAO dao = new JugadorDAO();
+            
+            //Preguntamos si se elimina
+            if (dao.eliminar(dao)) {
+               //Variable de session (nombre de la variable, contenido)
+               request.getSession().setAttribute("msjOK", "Jugador eliminado");
+            }else{
+               //Variable de session (nombre de la variable, contenido)
+               request.getSession().setAttribute("msjNO", "Jugador no eliminado");
+            }
+        } catch (Exception e) {
+              request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
+        } finally{
+              response.sendRedirect("index.jsp");
+       }
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Llamamos al dao para poder listar
+        JugadorDAO dao = new JugadorDAO();
+        request.getSession().setAttribute("jugador", dao.listarTodo());
+        response.sendRedirect("index.jsp");
+    
     }
 
     private void modificar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            //Recibimos el formulario
+            String rut = request.getParameter("txtRut");
+            String nombreJugador = request.getParameter("txtNombreJugador");
+            String apellidoJugador = request.getParameter("txtApellidoJugador");
+            int id_equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+            int id_titular = Integer.parseInt(request.getParameter("cboTitular"));
+            //Validamos a nivel que tiene los metodos
+            Equipo equipo = new Equipo(id_equipo);
+            Jugador jug = new Jugador(nombreJugador, equipo, titular, nombreJugador, apellidoJugador);
+        } catch (Exception e) {
+        }
+    
     }
 
 }
