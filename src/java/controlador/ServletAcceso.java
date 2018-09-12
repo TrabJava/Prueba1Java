@@ -57,7 +57,7 @@ public class ServletAcceso extends HttpServlet {
                 request.getSession().setAttribute("idUsuario", usuario.getIdUsuario());
               request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
               request.getSession().setAttribute("tipo", usuario.getTipoUsuario());
-              response.sendRedirect("Jugador_registrar.jsp");
+              response.sendRedirect("Jugador_Listar.jsp");
             }else{
                 request.getSession().setAttribute("mensaje", "Error");
                 response.sendRedirect("login.jsp");
