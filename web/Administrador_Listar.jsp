@@ -27,36 +27,37 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-1">         
-                        <form action="procesoUsuario" method="GET">
-                        <div class="form-group text-center">
-                            <input type="submit" name="btnAccion" value="Listar" class="btn btn-info"/>
+                    <form action="procesoUsuario" method="GET">
+                        <div class="col-lg-1">         
+
+                            <div class="form-group text-center">
+                                <input type="submit" name="btnAccion" value="Listar" class="btn btn-info"/>
+                            </div>
+
                         </div>
-                    </form>
-                    </div>
-                    <div class="col-lg-4">
-                      
-                        <br>
-                    <%
-                        HttpSession sesion = request.getSession();
-                        if (sesion.getAttribute("usuario") == null) {
-                            out.println("No Existen Datos");
-                        } else {
-                            UsuarioDAO dao = new UsuarioDAO();
-                    %>
-                    <table class="table table-bordered table-striped ">
-                        <tr>
-                            <th>ID USUARIO</th>
-                            <th>NOMBRE USUARIO</th>
-                            <th>CONTRASEÑA</th>
-                            <th>ID TIPO USUARIO</th>
-                            <th>ID ESTADO USUARIO</th>
-                        </tr>
+                        <div class="col-lg-4">
+
+                            <br>
                         <%
-                            for (Usuario aux : dao.listarTodo(dao)) {
+                            HttpSession sesion = request.getSession();
+                            if (sesion.getAttribute("usuario") == null) {
+                                out.println("No Existen Datos");
+                            } else {
+                                UsuarioDAO dao = new UsuarioDAO();
                         %>
-                        <tr>
-                            <td><%= aux.getIdUsuario()%></td>
+                        <table class="table table-bordered table-striped ">
+                            <tr>
+                                <th>ID USUARIO</th>
+                                <th>NOMBRE USUARIO</th>
+                                <th>CONTRASEÑA</th>
+                                <th>ID TIPO USUARIO</th>
+                                <th>ID ESTADO USUARIO</th>
+                            </tr>
+                            <%
+                                for (Usuario aux : dao.listarTodo(dao)) {
+                            %>
+                            <tr>
+                                <td><imput type="text" value="txtId"></imput><%= aux.getIdUsuario()%></td>
                             <td><%= aux.getNombreUsuario()%></td>
                             <td><%= aux.getContrasenia()%></td>
                             <td><%= aux.getTipoUsuario()%></td>
@@ -64,14 +65,17 @@
                             <td><input type="submit" name="btnAccion" value="Modificar" class="btn btn-primary" /></td>
                             <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary" /></td>
 
-                        </tr>
-                        <% } %>
-                    </table>
-                    <% }%>
-                </div>
-                <div class="col-lg-3">
+                            </tr>
+                            <% } %>
+                        </table>
+                        <% }%>
+                    </div>
+                    <div class="col-lg-3">
 
-                </div>
+                    </div>
+                </form>
+                ${msjOK}
+                ${msjNO}
             </div>
 
         </div>
