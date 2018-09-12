@@ -63,7 +63,7 @@ public class ServletUsuario extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Llamamos al dao para poder listar
         UsuarioDAO dao = new UsuarioDAO();
-        request.getSession().setAttribute("usuario", dao.listarTodo(dao));
+        request.getSession().setAttribute("usuario", dao.listarTodo());
         response.sendRedirect("Administrador_Listar.jsp");
     }
 
