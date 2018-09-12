@@ -47,6 +47,7 @@
                         %>
                         <table class="table table-bordered table-striped ">
                             <tr>
+                                <th>NUMERO</th>
                                 <th>ID USUARIO</th>
                                 <th>NOMBRE USUARIO</th>
                                 <th>CONTRASEÑA</th>
@@ -57,7 +58,8 @@
                                 for (Usuario aux : dao.listarTodo(dao)) {
                             %>
                             <tr>
-                                <td><imput type="text" value="txtId"></imput><%= aux.getIdUsuario()%></td>
+                            <td><imput type="text" value="txtId"></imput><%= aux.getIdUsuario()%></td>
+                            <td><%= aux.getIdUsuario()%></td>
                             <td><%= aux.getNombreUsuario()%></td>
                             <td><%= aux.getContrasenia()%></td>
                             <td><%= aux.getTipoUsuario()%></td>
