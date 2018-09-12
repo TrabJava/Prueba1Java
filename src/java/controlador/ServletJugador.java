@@ -11,8 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dto.Equipo;
-import modelo.dto.Jugador;
 
 /**
  *
@@ -31,49 +29,19 @@ public class ServletJugador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //Recibimos el boton del formulario
-        String opcion = request.getParameter("btnAccion");
-        //Cual accion se ejecuta
-        if(opcion.equals("Agregar")){
-          agregar(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletJugador</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ServletJugador at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        if(opcion.equals("Eliminar")) {
-            eliminar(request, response);
-        }
-        if(opcion.equals("Listar")){
-           listar(request, response);
-        }
-        if(opcion.equals("Modificar")){
-          modificar(request, response);
-        }
-        
-    }
-    protected void agregar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-        try {
-            //recibimos el formulario
-            String rutJugador = request.getParameter("txtRutJugador");
-            String nombreJugador = request.getParameter("txtNombreJugador");
-            String apellidoJugador = request.getParameter("txtApellidoJugador");
-            int idEquipo = Integer.parseInt(request.getParameter("cboEquipo"));
-            int idTitular = Integer.parseInt(request.getParameter("cboTitular"));
-            //Validamos a nivel de modelo(DTO)
-            
-            Jugador jug = new Jugador(rutJugador, equipo, titular, nombreJugador, apellidoJugador);
-        } catch (Exception e) {
-        }
-    }
-    
-    private void eliminar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    private void modificar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -114,13 +82,5 @@ public class ServletJugador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    
-
-    
-
-    
-
-    
 
 }
