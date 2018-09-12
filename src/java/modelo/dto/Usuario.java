@@ -22,6 +22,7 @@ public class Usuario implements java.io.Serializable {
 
     
     
+    
     public Usuario(EstadoUsuario estadoUsuario, TipoUsuario tipoUsuario, String nombreUsuario, String contrasenia) {
         this.estadoUsuario = estadoUsuario;
         this.tipoUsuario = tipoUsuario;
