@@ -4,7 +4,10 @@
     Author     : Berni
 --%>
 
+<%@page import="modelo.dto.Usuario"%>
+<%@page import="modelo.dao.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,10 +17,65 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <title>JSP Page</title>
     </head>
     <body>
         <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1">         
+                        <form action="procesoUsuario" method="GET">
+                        <div class="form-group text-center">
+                            <input type="submit" name="btnAccion" value="Listar" class="btn btn-info"/>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="col-lg-4">
+                      
+                        <br>
+                    <%
+                        HttpSession sesion = request.getSession();
+                        if (sesion.getAttribute("usuario") == null) {
+                            out.println("No Existen Datos");
+                        } else {
+                            UsuarioDAO dao = new UsuarioDAO();
+                    %>
+                    <table class="table table-bordered table-striped ">
+                        <tr>
+                            <th>ID USUARIO</th>
+                            <th>NOMBRE USUARIO</th>
+                            <th>CONTRASEÑA</th>
+                            <th>ID TIPO USUARIO</th>
+                            <th>ID ESTADO USUARIO</th>
+                        </tr>
+                        <%
+                            for (Usuario aux : dao.listarTodo(dao)) {
+                        %>
+                        <tr>
+                            <td><%= aux.getIdUsuario()%></td>
+                            <td><%= aux.getNombreUsuario()%></td>
+                            <td><%= aux.getContrasenia()%></td>
+                            <td><%= aux.getTipoUsuario()%></td>
+                            <td><%= aux.getEstadoUsuario()%></td>
+                            <td><input type="submit" name="btnAccion" value="Modificar" class="btn btn-primary" /></td>
+                            <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary" /></td>
+
+                        </tr>
+                        <% } %>
+                    </table>
+                    <% }%>
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+            </div>
+
+        </div>
+
 
 
     </body>
