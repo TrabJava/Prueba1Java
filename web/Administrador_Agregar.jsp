@@ -17,38 +17,46 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
-            <div class="row centered-form">
-                <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <center>
-                                <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
-                            </center>
-                        </div>
-                        <div class="panel-body">
-                            <form action="procesoUsuario" method="GET">
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
-                                            <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
-                                        </div>
-                                    </div>                               
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-5">
-                                        <div class="form-group">
-                                            <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
-                                        </div>
-                                    </div>
-                                </div>  
-                                <input type="submit" name="btnAccion" value="Agregar" class="boton">
-                            </form>
-                        ${msjOK}
-                        ${msjNO}
+    <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+                       url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
+                       user = "root"  password = ""/>
+    <sql:query dataSource = "${snapshot}" var = "result">
+        SELECT id_tipo, descripcion_liga FROM liga;
+    </sql:query>
+
+
+    <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
+                        </center>
                     </div>
+                    <div class="panel-body">
+                        <form action="procesoUsuario" method="GET">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                    <div class="form-group">
+                                        <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                    </div>
+                                </div>                               
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-5">
+                                    <div class="form-group">
+                                        <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                            </div>  
+                            <input type="submit" name="btnAccion" value="Agregar" class="boton">
+                        </form>
+                    ${msjOK}
+                    ${msjNO}
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
