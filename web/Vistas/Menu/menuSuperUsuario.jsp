@@ -23,6 +23,7 @@
                 </li>
                 <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a>
                 </li>
+                <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
     </body>
