@@ -18,6 +18,11 @@ public class Liga  implements java.io.Serializable {
     public Liga() {
     }
 
+    public Liga(Integer idLiga) {
+        this.idLiga = idLiga;
+    }
+    
+
 	
     public Liga(String descripcionLiga) {
         this.descripcionLiga = descripcionLiga;
