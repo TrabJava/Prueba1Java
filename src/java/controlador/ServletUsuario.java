@@ -131,13 +131,14 @@ public class ServletUsuario extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("txtId"));
             String nombre = request.getParameter("txtNombreUsuario");
             String contra = request.getParameter("txtPassword");
-            int tipoUsuario =Integer.parseInt("cbo");
-            int estadoUsuario =Integer.parseInt("");
+            int tipoUsuario =Integer.parseInt(request.getParameter("cboTipoUsuario"));
+            int estadoUsuario =Integer.parseInt(request.getParameter("cboEstadoUsuario"));
+            
             TipoUsuario tipo = new TipoUsuario(tipoUsuario);
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
             
             // Validamos a nivel de modelo(DTO)
-            Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario(id,estado, tipo, nombre, contra);
             // LLamamos al dao que tiene los metodos
             UsuarioDAO dao = new UsuarioDAO();
 
@@ -150,9 +151,9 @@ public class ServletUsuario extends HttpServlet {
                 request.getSession().setAttribute("msjNO", "Usuario No Modificado");
             }
         } catch (Exception e) {
-            request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
+            request.getSession().setAttribute("msjNO", "Error: ");
         } finally {
-            response.sendRedirect("Administrador_Modificar.jsp");
+            response.sendRedirect("Administrador_Listar.jsp");
         }
     }
 
