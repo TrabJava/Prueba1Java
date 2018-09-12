@@ -3,11 +3,10 @@
     Created on : 11-09-2018, 18:38:16
     Author     : Berni
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="modelo.dto.Usuario"%>
 <%@page import="modelo.dao.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,64 +19,87 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <title>JSP Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Listar Administradores</title>
     </head>
     <body>
-        <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+        <c:choose>  
+            <c:when test="${usuario == null}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>Tiene que iniciar sesión primero</h1>
+                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo != 1}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
+                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${usuario != null}">
+                <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
 
-            <div class="container">
-                <div class="row">
-                    <form action="procesoUsuario" method="GET">
-                        <div class="col-lg-1">         
-                        </div>
-                        <div class="col-lg-4">
+                    <div class="container">
+                        <div class="row">
 
-                            <br>
-                        <%
-                            HttpSession sesion = request.getSession();
-                            if (sesion.getAttribute("usuario") == null) {
-                                out.println("No Existen Datos");
-                            } else {
-                                UsuarioDAO dao = new UsuarioDAO();
-                        %>
-                        <table class="table table-bordered table-striped ">
-                            <tr>
-                                <th>NUMERO</th>
-                                <th>ID USUARIO</th>
-                                <th>NOMBRE USUARIO</th>
-                                <th>CONTRASEÑA</th>
-                                <th>ID TIPO USUARIO</th>
-                                <th>ID ESTADO USUARIO</th>
-                            </tr>
+                            <div class="col-lg-1">         
+                            </div>
+                            <div class="col-lg-4">
+
+                                <br>
                             <%
-                                for (Usuario aux : dao.listarTodo()) {
+                                HttpSession sesion = request.getSession();
+                                if (sesion.getAttribute("usuario") == null) {
+                                    out.println("No Existen Datos");
+                                } else {
+                                    UsuarioDAO dao = new UsuarioDAO();
                             %>
-                            <tr>
-                            <td><imput type="text" value="txtId"></imput><%= aux.getIdUsuario()%></td>
-                            <td><%= aux.getIdUsuario()%></td>
-                            <td><%= aux.getNombreUsuario()%></td>
-                            <td><%= aux.getContrasenia()%></td>
-                            <td><%= aux.getTipoUsuario()%></td>
-                            <td><%= aux.getEstadoUsuario()%></td>
-                            <td><input type="submit" name="btnAccion" value="Modificar" class="btn btn-primary" /></td>
-                            <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary" /></td>
+                            <form action="../procesoUsuario" method="GET">
+                               
+                                    <table class="table table-bordered table-striped ">
+                                        <tr>
 
-                            </tr>
-                            <% } %>
-                        </table>
-                        <% }%>
+                                            <th>ID USUARIO</th>
+                                            <th>NOMBRE USUARIO</th>
+                                            <th>CONTRASEÑA</th>
+                                            <th>ID TIPO USUARIO</th>
+                                            <th>ID ESTADO USUARIO</th>
+                                        </tr>
+                                        <%
+                                            for (Usuario aux : dao.listarTodo()) {
+                                        %>
+                                       
+                                            <tr class="info">     
+                                                <td><input name="txtId" type="text" readonly="" value="<%= aux.getIdUsuario()%>"></td>
+                                                <td><input name="txtNombreUsuario" type="text" readonly="" value="<%= aux.getNombreUsuario()%>"></td>
+                                                <td><input name="txtPassword" type="text" readonly="" value="<%= aux.getContrasenia()%>"></td>
+                                                <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="<%= aux.getTipoUsuario().getDescripcionTipoUsuario()%>"></td>
+                                                <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="<%= aux.getEstadoUsuario().getDescripcionEstadoUsuario()%>"></td>
+                                                <td><a href="Administrador_Modificar.jsp?id=<%= aux.getIdUsuario()%>"class="btn btn-primary" id="url"/>Modificar</td>
+                                                <td><a href="Administrador_Listar.jsp?id=<%= aux.getIdUsuario()%>"class="btn btn-primary" id="url"/>Desactivar</td>
+
+                                            </tr>
+                                        <% } %>
+                                    </table>
+
+                            </form> 
+                            <% }%>
+
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                        </form>
+
                     </div>
-                    <div class="col-lg-3">
 
-                    </div>
-                </form>
-                ${msjOK}
-                ${msjNO}
-            </div>
-
-        </div>
-
-
-
+                </div>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
     </body>
 </html>
