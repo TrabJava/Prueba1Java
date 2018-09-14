@@ -56,60 +56,63 @@
         </c:when>
         <c:when test="${tipo == 1 && usuario!=null}">
             <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <th>Rut Jugador</th>
-                        <th>Nombre Jugador</th>
-                        <th>Apellido Jugador</th>
-                        <th>Nombre del Equipo</th>
-                        <th>Titular</th>
+                <form action="procesoEquipo" method="GET">    
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Rut Jugador</th>
+                            <th>Nombre Jugador</th>
+                            <th>Apellido Jugador</th>
+                            <th>Nombre del Equipo</th>
+                            <th>Titular</th>
+                        </tr>
+                    <%
+                        for (Equipo aux : dao.listarTodo()) {
+                    %>
+                    <tr class="info">
+
+                        <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
+                        <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
+                        <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
+                        <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
+                        <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
+                        <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
+                        <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+
+
                     </tr>
-                <%
-                    for (Equipo aux : dao.listarTodo()) {
-                %>
-                <tr class="info">
-                <form action="procesoEquipo" method="GET">
-                    <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
-                    <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
-                    <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
-                    <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
-                    <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
-                    <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
-                    <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                </form>
-
-                </tr>
-                <% } %>
-            </table>
-
+                    <% } %>
+                </table>
+            </form>
         </c:when>
         <c:when test="${tipo == 2 && usuario!=null}">
             <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <th>Rut Jugador</th>
-                        <th>Nombre Jugador</th>
-                        <th>Apellido Jugador</th>
-                        <th>Nombre del Equipo</th>
-                        <th>Titular</th>
-                    </tr>
-                <%
-                    for (Equipo aux : dao.listarTodo()) {
-                %>
-                <tr class="info">
                 <form action="procesoEquipo" method="GET">
-                    <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
-                    <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
-                    <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
-                    <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
-                    <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
-                    <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
-                    <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                </form>
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Rut Jugador</th>
+                            <th>Nombre Jugador</th>
+                            <th>Apellido Jugador</th>
+                            <th>Nombre del Equipo</th>
+                            <th>Titular</th>
+                        </tr>
+                    <%
+                        for (Equipo aux : dao.listarTodo()) {
+                    %>
+                    <tr class="info">
 
-                </tr>
-                <% } %>
-            </table>
+                        <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
+                        <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
+                        <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
+                        <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
+                        <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
+                        <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
+                        <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+
+
+                    </tr>
+                    <% } %>
+                </table>
+            </form>
             <% }%>
         </c:when>
         <c:otherwise>
