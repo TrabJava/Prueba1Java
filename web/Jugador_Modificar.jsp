@@ -40,6 +40,7 @@
             rset = pre.executeQuery();
             while (rs.next()) {
         %>
+        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
         <div class="container">
             <h1>Modificar Registro</h1>
             <hr>

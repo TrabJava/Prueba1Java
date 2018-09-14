@@ -26,17 +26,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body>
         <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
-         url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
-         user = "root"  password = ""/>
-        
+                           url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
+                           user = "root"  password = ""/>
+
         <sql:query dataSource = "${snapshot}" var = "result">
             SELECT id_titular, descripcion_titular FROM titular;
-         </sql:query>
-         <sql:query dataSource = "${snapshot}" var = "equipo">
+        </sql:query>
+        <sql:query dataSource = "${snapshot}" var = "equipo">
             SELECT id_equipo FROM equipo WHERE id_usuario=(SELECT id_usuario FROM usuario WHERE nombre_usuario="${usuario}");
-         </sql:query>
-
-        <div class="row centered-form">
+        </sql:query>
+        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+            <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -53,43 +53,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         </div>
                                     </div>                               
                                 </div>
-                                 <div class="row">
+                                <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
                                             <input type="text" name="txtNombreJugador" class="form-control input-sm" required="" placeholder="Nombre Jugador">
                                         </div>
                                     </div>                               
                                 </div>
-                                 <div class="row">
+                                <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
                                         <div class="form-group">
                                             <input type="text" name="txtApellidoJugador" class="form-control input-sm" required="" placeholder="Apellido Jugador">
                                         </div>
                                     </div>                               
                                 </div>
-                                 <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <c:forEach var = "row" items = "${equipo.rows}">
-                                               <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
-                                        
-                                           </c:forEach>
-                                    </div>                               
-                                </div>
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
-                                          <select name="cboTitular" >
-                                <c:forEach var = "row" items = "${result.rows}">
-                                    <option value="${row.id_titular}">${row.descripcion_titular}</option>
-                                </c:forEach>
-                            </select>
+                                    <c:forEach var = "row" items = "${equipo.rows}">
+                                        <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
+
+                                    </c:forEach>
+                                </div>                               
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                    <div class="form-group">
+                                        <select name="cboTitular" >
+                                            <c:forEach var = "row" items = "${result.rows}">
+                                                <option value="${row.id_titular}">${row.descripcion_titular}</option>
+                                            </c:forEach>
+                                        </select>
                                     </div>
-                                    </div>                               
-                                </div>
-                                
-                                
-                                <input type="submit" name="btnAccion" value="Agregar" class="boton">
-                            </form>
+                                </div>                               
+                            </div>
+
+
+                            <input type="submit" name="btnAccion" value="Agregar" class="boton">
+                        </form>
                         ${msjOK}
                         ${msjNO}
                     </div>

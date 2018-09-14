@@ -17,7 +17,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
         <div class="row centered-form">
             <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                 <div class="panel panel-default">
