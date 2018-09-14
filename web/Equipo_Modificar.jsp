@@ -13,21 +13,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta charset="utf-8" />
-        <meta name="author" content="Script Tutorials" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+        <link href="js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
         <title>Modificar Equipo</title>
     </head>
     <body>
@@ -77,7 +69,7 @@
                 <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
                     ID Equipo:
                     <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
-                   
+                    <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                         <div class="container">
                             <h1>Modificar Registro</h1>
                             <hr>
@@ -118,7 +110,7 @@
                 <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
                     ID Equipo:
                     <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
-                    
+                    <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                         <div class="container">
                             <h1>Modificar Registro</h1>
                             <hr>
