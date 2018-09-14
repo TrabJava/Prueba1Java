@@ -68,7 +68,7 @@
                                 } else {
                                     UsuarioDAO dao = new UsuarioDAO();
                             %>
-                            <form action="../procesoUsuario" method="GET">
+                            
 
                                 <table class="table table-bordered table-striped ">
 
@@ -81,24 +81,26 @@
                                         <th>ID ESTADO USUARIO</th>
                                     </tr>
 
-
+                                       
                                     <c:forEach var = "row" items = "${admin.rows}">
-                                        <tr class="info">   
                                         <form action="procesoUsuario" method="GET">
+                                        <tr class="info">  
                                             <td><input name="txtId" type="text" readonly="" value="${row.id_usuario}"></td>
                                             <td><input name="txtNombreUsuario" type="text" readonly="" value="${row.nombre_usuario}"></td>
                                             <td><input name="txtPassword" type="text" readonly="" value="${row.contrasenia}"></td>
                                             <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="${row.descripcion_tipo_usuario}"</td>
-                                            <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.descripcion_estado_usuario}"></td
-                                            <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary"></td>
-                                           </form>
+                                            <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.descripcion_estado_usuario}"></td>
                                             <td><a href="Administrador_Modificar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Modificar</td>
+                                            <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary"></td>
+                                          
                                         </tr>
+                                        </form>
                                     </c:forEach>
+                                    
 
                                 </table>
 
-                            </form> 
+                            
                             <% }%>
 
                         </div>
