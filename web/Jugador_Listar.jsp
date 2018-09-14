@@ -4,6 +4,7 @@
     Author     : Artiko1
 --%>
 
+<%@page import="modelo.dao.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
@@ -12,7 +13,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Script Tutorials" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
         <title>JSP Page</title>
     </head>
     <body>
@@ -29,32 +41,92 @@
             PreparedStatement ps;
             ResultSet rs;
             String id = request.getParameter("id");
-            ps = con.prepareStatement("select * from jugador where id_equipo=" + id);
+            ps = con.prepareStatement("select * from jugador j JOIN equipo e ON j.id_equipo=e.id_equipo where j.id_equipo=" + id);
             rs = ps.executeQuery();
             while (rs.next()) {
         %>
-        <div class="container">
-            <h1>Jugadores del Equipo: <%= rs.getString("id_equipo")%></h1>
-            <hr>
-            <form action="procesoJugador" method="GET" class="form-control" style="width: 500px; height: 400px">
-                RUT:
-                <input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/>
-                Nombre:
-                <input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/><br>
+        
+        <c:choose>  
+            <c:when test="${usuario == null}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>Tiene que iniciar sesión primero</h1>
+                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo != 2}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
+                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${usuario != null}">
+                <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
 
-                Apellido:
-                <input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/>
-                 
-                Equipo:
-                <input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getInt("id_equipo")%>"/>
-                 
-                <br>
-                    <a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" id="url">Modificar</a>
-                    <input type="submit" name="btnAccion" value="Eliminar">
+                    <div class="container">
+                        <div class="row">
 
-                <a href="Equipo_Listar.jsp">Regresar</a>
-            </form>
+                            <div class="col-lg-1">         
+                            </div>
+                            <div class="col-lg-4">
+
+                                <br>
+                            <%
+                                HttpSession sesion = request.getSession();
+                                if (sesion.getAttribute("usuario") == null) {
+                                    out.println("No Existen Datos");
+                                } else {
+                                    UsuarioDAO dao = new UsuarioDAO();
+                            %>
+                            
+
+                                <table class="table table-bordered table-striped ">
+
+                                    <tr>
+
+                                        <th>RUT JUGADOR</th>
+                                        <th>NOMBRE JUGADOR</th>
+                                        <th>APELLIDO JUGADOR</th>
+                                        <th>NOMBRE DEL EQUIPO</th>
+                                        <th>TITULAR</th>
+                                    </tr>
+
+                                    <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
+                                    
+                                        <form action="procesoJugador" method="GET" >
+                                        <tr class="info">  
+                                            <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
+                                            <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
+                                            <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
+                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getInt("nombre_equipo")%>"/></td>
+                                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" id="url">Modificar</a></td>
+                                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+                                            
+                                        </tr>
+                                        </form>
+                                    
+                                    
+
+                                </table>
+
+                            
+                            <% }%>
+
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+        
             <%}%>
-        </div>
     </body>
 </html>
