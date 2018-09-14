@@ -45,6 +45,13 @@
             rset = pre.executeQuery();
             while (rs.next()) {
         %>
+
+        <div class="container">
+            <h1>Modificar equipo <strong><%= rs.getString("nombre_equipo")%></strong></h1>
+            <hr>
+            <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
+                ID Equipo:
+                <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
             <div class="container">
                 <h1>Modificar Registro</h1>
@@ -68,9 +75,10 @@
                 </select>
 
                 <br>
-                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary btn-lg"/>
+                <br>
+                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary"/>
 
-                <a href="index.jsp">Regresar</a>
+                <a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a>
             </form>
             <%}%>
         </div>
