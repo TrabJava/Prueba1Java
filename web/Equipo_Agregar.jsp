@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </c:when>
-            <c:when test="${tipo == 2 && usuario!=null && estado !=1}">
+            <c:when test="${tipo == 2 && usuario!=null && estado ==1}">
                 <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                     <div class="row centered-form">
                         <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">

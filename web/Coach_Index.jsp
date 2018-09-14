@@ -37,7 +37,7 @@
             <c:when test="${tipo == 1 && usuario!=null}">
                 <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
             </c:when>
-            <c:when test="${tipo == 2 && usuario!=null && estado !=1}">
+            <c:when test="${tipo == 2 && usuario!=null && estado ==1}">
                 <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
             </c:when>
             <c:otherwise>

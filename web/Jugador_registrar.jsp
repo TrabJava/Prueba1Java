@@ -39,7 +39,7 @@
                     <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
                 </div>
             </c:when>
-            <c:when test="${tipo != 2 && tipo !=1 && tipo!=3}">
+            <c:when test="${tipo != 2 && tipo !=1 && tipo!=3 && estado !=1}">
                 <div class="background"></div>
                 <div class="content">               
                     <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </c:when>
-            <c:when test="${tipo == 2 && usuario!=null && estado !=1}">
+            <c:when test="${tipo == 2 && usuario!=null && estado ==1}">
                 <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                     <div class="row centered-form">
                         <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
