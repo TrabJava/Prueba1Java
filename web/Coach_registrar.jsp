@@ -1,47 +1,54 @@
 <%-- 
-    Document   : registrarUsuario
-    Created on : 11-09-2018, 18:12:08
-    Author     : Artiko1
+    Document   : Agregar_Administrador
+    Created on : 10-09-2018, 18:10:38
+    Author     : Berni
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
     <head>
-        <title>Gaming Login Form Responsive Widget Template  :: w3layouts</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Gaming Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"/>
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <link href="../../login/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
+        <link href="js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
+        <title>JSP Page</title>
     </head>
     <body>
-        <div class="padding-all">
-            <div class="header">
-                <h1><img src="./images/5.png" alt=" "> Gaming Login Form</h1>
-            </div>
-
-            <div class="design-w3l">
-                <div class="mail-form-agile">
-                    <form action="#" method="post">
-                        <input type="text" name="txtNombre" placeholder="Ingrese Nombre" required=""/>
-                        <input type="text" name="txtContrasenia" placeholder="Ingrese Nombre" required=""/>
-                        <%--Se debe agregar un tipo usuario en este caso un Administrador (con hidden)--%>
-                        <select id ="idTipo_estado">
-                            <option value = "1">Activo</option>
-                            <option value = "2"> Desactivo </option>
-                        </select>
-                        <br>
-                        <input type="submit" value="Registrar" id="btnAgregar" class="btnAgregar">
-                    </form>
+    <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
+                        </center>
+                    </div>
+                    <div class="panel-body">
+                        <form action="procesoUsuario" method="GET">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                    <div class="form-group">
+                                        <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                    </div>
+                                </div>                               
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-5">
+                                    <div class="form-group">
+                                        <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                            </div>  
+                            <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
+                        </form>
+                    ${msjOK}
+                    ${msjNO}
                 </div>
-                <div class="clear"> </div>
-            </div>
-
-            <div class="footer">
-                <p>? 2017 Gaming Login form. All Rights Reserved | Design by  <a href="https://w3layouts.com/" >  w3layouts </a></p>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
