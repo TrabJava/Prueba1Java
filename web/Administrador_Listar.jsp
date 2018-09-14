@@ -92,7 +92,7 @@
                                             <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.descripcion_estado_usuario}"></td>
                                             <td><a href="Administrador_Modificar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Modificar</td>
                                             <td><input type="submit" name="btnAccion" value="Desactivar" class="btn btn-primary"></td>
-                                          
+                                            
                                         </tr>
                                         </form>
                                     </c:forEach>
