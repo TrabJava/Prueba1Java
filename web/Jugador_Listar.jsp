@@ -42,26 +42,12 @@
             PreparedStatement ps;
             ResultSet rs;
             String id = request.getParameter("id");
-            ps = con.prepareStatement("select * from jugador j JOIN equipo e ON j.id_equipo=e.id_equipo JOIN titular t ON t.id_titular=j.id_titular where j.id_equipo=" + id);
+            ps = con.prepareStatement("select * from jugador where id_equipo=" + id);
             rs = ps.executeQuery();
             while (rs.next()) {
         %>
-        <c:choose>  
-            <c:when test="${usuario == null }">
-                <div class="background"></div>
-                <div class="content">               
-                    <h1>Tiene que iniciar sesión primero</h1>
-                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
-                </div>
-            </c:when>
-            <c:when test="${tipo != 2 && tipo !=1 && estado !=1}">
-                <div class="background"></div>
-                <div class="content">               
-                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
-                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
-                </div>
-            </c:when>
-            <c:when test="${tipo == 1 && usuario!=null}">
+        
+       
                 <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
                     <form action="procesoJugador" method="GET" >
                         <table class="table table-bordered table-striped ">
@@ -75,15 +61,15 @@
                                 <th>TITULAR</th>
                             </tr>
 
-                            <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
+                            <h1>Jugadores del Equipo: <%= rs.getString("id_equipo")%></h1>
 
                         
                         <tr class="info">  
                             <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
                             <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
                             <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
-                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
-                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("id_equipo")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("id_titular")%>"/></td>
                             <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
                             <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
                             <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
@@ -98,50 +84,7 @@
                 <div class="col-lg-3">
 
                 </div>
-            </c:when>
-            <c:when test="${tipo == 2 && usuario!=null && estado ==1}">
-                <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-                    <form action="procesoJugador" method="GET" >
-                        <table class="table table-bordered table-striped ">
-
-                            <tr>
-
-                                <th>RUT JUGADOR</th>
-                                <th>NOMBRE JUGADOR</th>
-                                <th>APELLIDO JUGADOR</th>
-                                <th>NOMBRE DEL EQUIPO</th>
-                                <th>TITULAR</th>
-                            </tr>
-
-                            <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
-
-
-                        <tr class="info">  
-                            <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
-                            <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
-                            <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
-                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
-                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
-                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
-                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                            <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
-                        </tr>
-
-
-
-
-                    </table>
-                            
-                </form>
-
-
-                <div class="col-lg-3">
-
-                </div>
-            </c:when>
-            <c:otherwise>
-            </c:otherwise>
-        </c:choose>
+           
         <%}%>
     </body>
 </html>
