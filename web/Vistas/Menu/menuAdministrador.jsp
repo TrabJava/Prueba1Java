@@ -18,7 +18,7 @@
     <body>
         <div class="container">
             <ul id="nav">
-                <li class="active"><a href="Coach_index.jsp">Inicio</a></li>
+                <li class="active"><a href="Coach_Index.jsp">Inicio</a></li>
                 <li><a href="Coach_registrar.jsp">Agregar Coach</a></li> 
                 <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>   
                 <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
