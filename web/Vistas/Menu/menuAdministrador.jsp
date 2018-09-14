@@ -25,7 +25,6 @@
                 <li><a href="Equipo_Modificar.jsp">Modificar Equipo</a></li>
                 <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
                 <li><a href="Jugador_Listar.jsp">Agregar Jugador</a></li>
-                <li><a href="Jugador_Modificar.jsp">Modificar Jugador</a></li>
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
