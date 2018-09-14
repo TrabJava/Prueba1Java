@@ -30,7 +30,7 @@
                            url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
                            user = "root"  password = ""/>
         <sql:query dataSource = "${snapshot}" var = "admin">
-            SELECT * FROM usuario JOIN tipo_usuario ON usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario JOIN   WHERE usuario.id_tipo_usuario=2  ;
+            SELECT * FROM usuario JOIN tipo_usuario ON usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario JOIN estado_usuario ON usuario.id_estado_usuario = estado_usuario.id_estado_usuario  WHERE usuario.id_tipo_usuario=2  ;
         </sql:query>
        <%-- <sql:query dataSource = "${snapshot}" var = "desactivar">
             UPDATE usuario set id_estado_usuario=2 ;
@@ -88,8 +88,8 @@
                                             <td><input name="txtId" type="text" readonly="" value="${row.id_usuario}"></td>
                                             <td><input name="txtNombreUsuario" type="text" readonly="" value="${row.nombre_usuario}"></td>
                                             <td><input name="txtPassword" type="text" readonly="" value="${row.contrasenia}"></td>
-                                            <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="${row.id_tipo_usuario}"></td>
-                                            <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.id_estado_usuario}"></td>
+                                            <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="${row.descripcion_tipo_usuario}"</td>
+                                            <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.descripcion_estado_usuario}"></td>
                                             <td><a href="Administrador_Modificar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Modificar</td>
                                             <td><a href="Administrador_Listar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Desactivar</td>
 
