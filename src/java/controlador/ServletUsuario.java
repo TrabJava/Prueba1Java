@@ -222,7 +222,7 @@ public class ServletUsuario extends HttpServlet {
             request.getSession().setAttribute("msjNO", "Error: ");
 
         } finally {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("Coach_registrar.jsp");
         }
     }
 
