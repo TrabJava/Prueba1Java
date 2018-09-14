@@ -55,6 +55,10 @@ public class Usuario implements java.io.Serializable {
         this.contrasenia = contrasenia;
     }
 
+    public Usuario(int id_Usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 
 
