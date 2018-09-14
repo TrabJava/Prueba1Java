@@ -185,8 +185,10 @@ public class ServletUsuario extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       UsuarioDAO dao = new UsuarioDAO();
+            request.getSession().setAttribute("usuario", dao.listarTodo());
+            response.sendRedirect("Administrador_Listar.jsp");
     }
 
     
