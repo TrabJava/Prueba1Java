@@ -10,6 +10,7 @@
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,6 +29,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+         
         <%
             //CONECTANOD A LA BASE DE DATOS:
             Connection con;
@@ -41,47 +44,12 @@
             PreparedStatement ps;
             ResultSet rs;
             String id = request.getParameter("id");
-            ps = con.prepareStatement("select * from jugador j JOIN equipo e ON j.id_equipo=e.id_equipo where j.id_equipo=" + id);
+            ps = con.prepareStatement("select * from jugador j JOIN equipo e ON j.id_equipo=e.id_equipo JOIN titular t ON t.id_titular=j.id_titular where j.id_equipo=" + id);
             rs = ps.executeQuery();
             while (rs.next()) {
         %>
         
-        <c:choose>  
-            <c:when test="${usuario == null}">
-                <div class="background"></div>
-                <div class="content">               
-                    <h1>Tiene que iniciar sesión primero</h1>
-                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
-                </div>
-            </c:when>
-            <c:when test="${tipo != 2}">
-                <div class="background"></div>
-                <div class="content">               
-                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
-                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
-                </div>
-            </c:when>
-            <c:when test="${usuario != null}">
-                <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-lg-1">         
-                            </div>
-                            <div class="col-lg-4">
-
-                                <br>
-                            <%
-                                HttpSession sesion = request.getSession();
-                                if (sesion.getAttribute("usuario") == null) {
-                                    out.println("No Existen Datos");
-                                } else {
-                                    UsuarioDAO dao = new UsuarioDAO();
-                            %>
-                            
-
-                                <table class="table table-bordered table-striped ">
+                   <table class="table table-bordered table-striped ">
 
                                     <tr>
 
@@ -99,10 +67,11 @@
                                             <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
                                             <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
                                             <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
-                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getInt("nombre_equipo")%>"/></td>
-                                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" id="url">Modificar</a></td>
+                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
+                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
+                                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
                                             <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                                            
+                                            <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
                                         </tr>
                                         </form>
                                     
@@ -111,7 +80,6 @@
                                 </table>
 
                             
-                            <% }%>
 
                         </div>
                         <div class="col-lg-3">
@@ -122,10 +90,7 @@
                     </div>
 
                 </div>
-            </c:when>
-            <c:otherwise>
-            </c:otherwise>
-        </c:choose>
+       
         
             <%}%>
     </body>
