@@ -77,7 +77,7 @@
 
                             <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
 
-
+                        
                         <tr class="info">  
                             <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
                             <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>

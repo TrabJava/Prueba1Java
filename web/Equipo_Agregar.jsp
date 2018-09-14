@@ -207,7 +207,7 @@
                                         <div class="col-xs-6 col-sm-6 col-md-4 ">
                                             <div class="form-group">
                                                 <c:forEach var = "row" items = "${sesion.rows}">
-                                                    <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_usuario}">
+                                                    <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" readonly="" value="${row.id_usuario}">
 
                                                 </c:forEach>
                                             </div>
