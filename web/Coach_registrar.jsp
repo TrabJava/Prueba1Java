@@ -19,11 +19,11 @@
     <body>
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
         <div class="row centered-form">
-            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <center>
-                            <h3 class="panel-title"><strong>Agregar Administrador</strong> <small>Para SuperAdministrador</small></h3>
+                            <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
                         </center>
                     </div>
                     <div class="panel-body">
