@@ -31,8 +31,7 @@
     </head>
     <body>
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-        <br>
-        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+       
         <%
                         HttpSession sesion = request.getSession();
                         if ( sesion.getAttribute("usuario") == null ) {
