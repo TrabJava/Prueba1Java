@@ -17,7 +17,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
-    <body>
+       <body>
         <%
             //CONECTANOD A LA BASE DE DATOS:
             Connection con;
@@ -40,22 +40,21 @@
             rset = pre.executeQuery();
             while (rs.next()) {
         %>
-        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
         <div class="container">
-            <h1>Modificar Registro</h1>
+            <h1>Modificar Jugador <strong><%= rs.getString("nombre_jugador")%></strong> </h1>
             <hr>
             <form action="procesoJugador" method="GET" class="form-control" style="width: 500px; height: 400px">
                 RUT:
                 <input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/>
                 Nombre:
-                <input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/><br>
+                <input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/>
 
                 Apellido:
                 <input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/>
                  
                 Equipo:
                 <input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getInt("id_equipo")%>"/>
-                  
+                <br>
                 Titular:
                 <select name="cboTitular" >
                                 <%
@@ -66,9 +65,10 @@
                             </select>
                
                 <br>
-                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary btn-lg"/>
+                <br>
+                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary"/>
 
-                <a href="index.jsp">Regresar</a>
+                 <a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a>
             </form>
             <%}%>
         </div>
