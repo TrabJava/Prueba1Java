@@ -51,6 +51,9 @@ public class ServletUsuario extends HttpServlet {
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
+        if(opcion.equals("AgregarCoach")){
+            agregarCoach(request, response);
+        }
        
     }
 
@@ -189,6 +192,38 @@ public class ServletUsuario extends HttpServlet {
        UsuarioDAO dao = new UsuarioDAO();
             request.getSession().setAttribute("usuario", dao.listarTodo());
             response.sendRedirect("Administrador_Listar.jsp");
+    }
+
+    private void agregarCoach(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       try {
+            //Recibimos los datos del formulario
+            String nombre = request.getParameter("txtNombreUsuario");
+            String contra = request.getParameter("txtPassword");
+            int tipoUsuario = 2;
+            int estadoUsuario = 1;
+            TipoUsuario tipo = new TipoUsuario(tipoUsuario);
+            EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
+            //Validamos a nivel de modelo (DTO)
+            Usuario usuario = new Usuario(estado, tipo, nombre, contra);
+
+            //Llamamos al dao que tiene los metodos
+            UsuarioDAO dao = new UsuarioDAO();
+
+            //Agregamos el alumno a la BD
+            if (dao.agregar(usuario)) {
+                //variable de sesion (nombre de la variable,contenido)
+                request.getSession().setAttribute("msjOK", "Administrador agregado");
+            } else {
+                //variable de sesion (nombre de la variable,contendio)
+                request.getSession().setAttribute("msjNO", "Administrador no agregado");
+            }
+
+        } catch (Exception e) {
+            request.getSession().setAttribute("msjNO", "Error: ");
+
+        } finally {
+            response.sendRedirect("index.jsp");
+        }
     }
 
     
