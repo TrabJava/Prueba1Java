@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="header">
             <div class="w3layouts_header_left">
                 <div class="top-nav-text">
-                    <p>Llamanos : <span class="call">+569) 003 03 456</span></p>
+                    <p>Llamanos : <span class="call">(+569) 003 03 456</span></p>
                     <p>Contactanos : <span class="mail"><a href="#">se.mora@alumnos.duoc.cl</a></span></p>
                 </div>
             </div>
