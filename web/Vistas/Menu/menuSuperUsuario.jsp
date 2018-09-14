@@ -20,7 +20,7 @@
             <ul id="nav">
                 <li><a href="Administrador_index.jsp">Inicio</a></li>
                 <li><a href="Administrador_Agregar.jsp">Agregar Administrador</a></li>
-                <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a></li>
+                <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a</li>
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
