@@ -59,7 +59,7 @@ public class ServletUsuario extends HttpServlet {
     private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Recibimos el formulario
         try {
-            int id=Integer.parseInt("txtId");
+            int id=Integer.parseInt(request.getParameter("txtId"));
             int estadoUsuario = 2;
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
             // Validamos a nivel de modelo(DTO)
