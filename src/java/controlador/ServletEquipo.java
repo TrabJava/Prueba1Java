@@ -117,7 +117,7 @@ public class ServletEquipo extends HttpServlet {
          } catch (Exception e) {
             request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
          }finally{
-           response.sendRedirect("index.jsp");
+           response.sendRedirect("Usuario_Index.jsp");
          }
     
     }
@@ -141,7 +141,7 @@ public class ServletEquipo extends HttpServlet {
         } catch (Exception e) {
                 request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
         }finally{
-           response.sendRedirect("index.jsp");
+           response.sendRedirect("Equipo_Listar.jsp");
         }
    
     
@@ -178,7 +178,7 @@ public class ServletEquipo extends HttpServlet {
         } catch (Exception e) {
               request.getSession().setAttribute("msjNO", "Error: "+e.getMessage());
         }finally{
-             response.sendRedirect("index.jsp");
+             response.sendRedirect("Equipo_Listar.jsp");
         }
     }
 
