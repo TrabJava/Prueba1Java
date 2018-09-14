@@ -81,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                 <li><a href="#about" class="scroll"><span data-hover="Sobre Nosotros">Sobre Nosotros</span></a></li>
                                 <li><a href="#services" class="scroll"><span data-hover="Torneos">Torneos</span></a></li>
-                                <li><a href="Jugador_registrar.jsp" ><span data-hover="Registrarse">Registrarse</span></a></li>
+                                <li><a href="Coach_registrar.jsp" ><span data-hover="Registrarse">Registrarse</span></a></li>
                                 <li><a href="login.jsp" ><span data-hover="Login">Login</span></a></li>
                             </ul>
                         </nav>
