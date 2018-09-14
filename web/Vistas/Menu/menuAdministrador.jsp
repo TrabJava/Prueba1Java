@@ -18,12 +18,9 @@
     <body>
         <div class="container">
             <ul id="nav">
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Agregar Administrador</a>        
-                </li>
-                <li class="active"><a href="Listar_Administrar.jsp">Listar Administrador</a>
-                </li>
-                <li><a href="Desactivar_Administrador.jsp">Desactivar Administrador</a></li>          
+                <li class="active"><a href="">Inicio</a></li>
+                <li><a href="Coach_registrar.jsp">Agregar Coach</a></li> 
+                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>         
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
