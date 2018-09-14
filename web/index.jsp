@@ -53,8 +53,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="header">
             <div class="w3layouts_header_left">
                 <div class="top-nav-text">
-                    <p>Llamanos : <span class="call">+569 985 892 60</span></p>
-                    <p>Contactanos : <span class="mail"><a href="#">Bernal@example.com</a></span></p>
+                    <p>Llamanos : <span class="call">+569) 003 03 456</span></p>
+                    <p>Contactanos : <span class="mail"><a href="#">se.mora@alumnos.duoc.cl</a></span></p>
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -70,19 +70,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <span class="icon-bar"></span>
                         </button>
                         <div class="w3_navigation_pos">
-                            <h1><a href="index.html"><span>Nos Vamos</span> League</a></h1>
+                            <h1><a href="index.jsp"><span>Nos Vamos</span> League</a></h1>
                         </div>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                         <nav class="cl-effect-5" id="cl-effect-5">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html"><span data-hover="Home">Home</span></a></li>
+                                <li class="active"><a href="index.jsp"><span data-hover="Home">Home</span></a></li>
 
-                                <li><a href="#about" class="scroll"><span data-hover="About">About</span></a></li>
-                                <li><a href="#services" class="scroll"><span data-hover="Services">Torneos</span></a></li>
-                                <li><a href="#work" class="scroll"><span data-hover="Gallery">Fotos</span></a></li>
-                                <li><a href="Jugador_registrar.jsp" ><span data-hover="News">Registrarse</span></a></li>
+                                <li><a href="#about" class="scroll"><span data-hover="Sobre Nosotros">Sobre Nosotros</span></a></li>
+                                <li><a href="#services" class="scroll"><span data-hover="Torneos">Torneos</span></a></li>
+                                <li><a href="Jugador_registrar.jsp" ><span data-hover="Registrarse">Registrarse</span></a></li>
                                 <li><a href="login.jsp" ><span data-hover="Login">Login</span></a></li>
                             </ul>
                         </nav>
@@ -103,13 +102,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div class="slider-info">
 
-                                <h4>League of Legends está que arde</h4>
-                                <p>Compite hoy en nuestro abismo de los lamentos</p>
+                                <h4><strong>League of Legends está que arde</strong></h4>
+                                <p>Compite hoy en nuestra liga profesional</p>
                             </div>
                         </li>
                         <li>
                             <div class="slider-img">
-                                <img src="images/banner22.jpg" class="img-responsive" alt="Fantasy World" width="1680" height="670">
+                                <img src="images/banner22.png" class="img-responsive" alt="Fantasy World" width="1680" height="670">
                             </div>
                             <div class="slider-info">
 
@@ -125,14 +124,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                 <h4>Que tan rata eres?</h4>
                                 <p>Solo el padre de todas las ratas puede ganar</p>
-                                <!--<a href="#about" class="hvr-shutter-in-horizontal scroll">Read More</a> -->
                             </div>
                         </li>
 
 
                     </ul>
 
-                </div>
+              
                 <div class="clearfix"></div>
             </div>
             <!--//Slider-->
@@ -159,25 +157,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="about" id="about">
             <div class="container">
                 <div class="col-md-4 agileits_about_left">
-                    <h3 class="w3l_head">About Us</h3>
-                    <p class="w3ls_head_para">who we are</p>
+                    <h3 class="w3l_head">Sobre Nosotros</h3>
+                    <p class="w3ls_head_para">Quienes Somos</p>
                 </div>
                 <div class="agileits_banner_bottom_grids">
                     <div class="col-md-6 agileits_banner_bottom_grid_l">
-                        <h4>Aliquam a nunc non erat lobortis</h4>
-                        <p><i>Vestibulum nec consequat nisl. Aliquam vehicula egestas commodo. 
-                                Pellentesque lorem magna, pulvinar sed lacinia et, venenatis in mi.</i>Nullam sodales rutrum nisl, gravida porttitor lectus porta et. 
-                            Duis purus arcu, semper at magna faucibus, elementum maximus ligula. 
-                            Etiam imperdiet posuere odio gravida vehicula. Nulla consectetur massa 
-                            eget tincidunt suscipit. Integer vitae ex eros. Cras ornare dignissim 
-                            scelerisque.</p>
+                        <h4>Estudiantes de Ing. en Informatica</h4>
+                        <p><i>Aguante Inacap
+                                </i></p>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                     </div>
                     <div class="col-md-6 agileits_banner_bottom_grid_r">
                         <div class="agileits_banner_btm_grid_r">
-                            <img src="images/ab.jpg" alt=" " class="img-responsive">
-                            <div class="agileits_banner_btm_grid_r_pos">
-                                <img src="images/ab1.jpg" alt=" " class="img-responsive">
-                            </div>
+                            <img src="images/ab.png" alt=" " class="img-responsive">
+                            
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -187,160 +183,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //about-bottom -->
         <!-- services -->
         <div class="services" id="services">
-            <h3 class="w3l_head w3l_head1">Services</h3>
-            <p class="w3ls_head_para w3ls_head_para1">View Our Services</p>
+            <h3 class="w3l_head w3l_head1">Servicios</h3>
+            <p class="w3ls_head_para w3ls_head_para1">Vee nuestros servicios</p>
             <div class="services-agile-w3l">
                 <div class="col-md-3 services-gd text-center">
                     <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
                         <a href="#" class="hi-icon"><img src="images/s1.png" alt=" " /></a>
                     </div>
-                    <h4>Service 1</h4>
-                    <p>Lorem Ipsum</p>
+                    <h4>Ingresa a tu Equipo</h4>
+                    <p>Elige tu Liga</p>
                 </div>
 
                 <div class="col-md-3 services-gd text-center">
                     <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
                         <a href="#" class="hi-icon"><img src="images/s2.png" alt=" " /></a>
                     </div>
-                    <h4>Service 2</h4>
-                    <p>Lorem Ipsum</p>
+                    <h4>Juega Fornite</h4>
+                    <p>Con tu Equipo</p>
                 </div>
                 <div class="col-md-3 services-gd text-center">
                     <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
-                        <a href="#" class="hi-icon"><img src="images/s3.png" alt=" " /></a>
+                        <a href="#" class="hi-icon"><img src="images/s3.png" alt="" /></a>
                     </div>
-                    <h4>Service 3</h4>
-                    <p>Lorem Ipsum</p>
+                    <h4>Juega League of Legends</h4>
+                    <p>Con tu Equipo</p>
                 </div>
                 <div class="col-md-3 services-gd text-center">
                     <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
                         <a href="#" class="hi-icon"><img src="images/s4.png" alt=" " /></a>
                     </div>
-                    <h4>Service 4</h4>
-                    <p>Lorem Ipsum</p>
+                    <h4>Juega Counter Strike</h4>
+                    <p>Con tu Equipo</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
         <!-- //services -->
 
-        <!-- gallery -->
-        <div class="team-bottom" id="work">
-            <div class="container">
-                <h3 class="w3l_head w3l_head1">Latest Gallery</h3>
-                <p class="w3ls_head_para w3ls_head_para1">Lorem Ipsum Dolor</p>
-                <div class="w3layouts_gallery_grids">
-                    <ul class="w3l_gallery_grid" id="lightGallery">
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/ab.jpg" data-responsive-src="images/8.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/ab.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
 
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g1.jpg" data-responsive-src="images/9.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g1.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g2.jpg" data-responsive-src="images/10.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g2.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g3.jpg" data-responsive-src="images/11.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g3.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g4.jpg" data-responsive-src="images/12.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g4.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g5.jpg" data-responsive-src="images/13.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g5.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g8.jpg" data-responsive-src="images/14.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g8.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g6.jpg" data-responsive-src="images/15.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g6.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g7.jpg" data-responsive-src="images/16.jpg"> 
-                            <div class="w3layouts_gallery_grid1 box">
-                                <a href="#">
-                                    <img src="images/g7.jpg" alt=" " class="img-responsive" />
-                                    <div class="overbox">
-                                        <h4 class="title overtext"> Fantasy World</h4>
-
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- //gallery -->
         <!-- projects -->
         <div class="projects" id="projects">
             <div class="container">
                 <div class="port-head">
-                    <h3 class="w3l_head w3l_head1">Latest News</h3>
-                    <p class="w3ls_head_para w3ls_head_para1">View Our Fantasy Games</p>
+                    <h3 class="w3l_head w3l_head1">Ultimas Imagenes</h3>
+                    <p class="w3ls_head_para w3ls_head_para1">Ve nuestros juegos Competitivos</p>
                 </div>
             </div>
             <div class="projects-grids">
@@ -349,21 +235,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s1.jpg" alt="" />
+                                <img src="images/s11.png" alt="" width="520" height="740" />
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Counter Strike</h4>
+                                    
                                 </div>
                             </div>	
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s2.jpg" alt="" />
+                                <img src="images/s2.jpg" alt="" width="520" height="740"/>
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Counter Strike</h4>
+                                    
                                 </div>
                             </div>	
                         </div>
@@ -372,57 +258,56 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="images/s3.jpg" alt="" />
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Fornite</h4>
+                                    <p>Battle Royale</p>
                                 </div>
                             </div>	
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s4.jpg" alt="" />
+                                <img src="images/s4.jpg" alt="" width="520" height="740"/>
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Counter Strike</h4>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s5.jpg" alt="" />
+                                <img src="images/s55.png" alt="" width="520" height="740"/>
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Fornite</h4>
+                                    <p>Battle Royale</p>
                                 </div>
                             </div>	
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s6.jpg" alt="" />
+                                <img src="images/s6.png" alt=""width="520" height="740" />
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>Fornite</h4>
+                                    <p>Battle Royale</p>
                                 </div>
                             </div>	
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s7.jpg" alt="" />
+                                <img src="images/s7.jpg" alt="" width="520" height="740"/>
                                 <div class="projects-grid-caption"> 
 
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>League of Legends</h4>
+                                    
                                 </div>
                             </div>	
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s1.jpg" alt="" />
+                                <img src="images/s8.jpg" alt="" width="520" height="740" />
                                 <div class="projects-grid-caption">
-                                    <h4>Fantasy World</h4>
-                                    <p>Lorem ipsum</p>
+                                    <h4>League of Legends</h4>
                                 </div>
                             </div>
                         </div>
