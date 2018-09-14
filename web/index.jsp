@@ -82,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#about" class="scroll"><span data-hover="About">About</span></a></li>
                                 <li><a href="#services" class="scroll"><span data-hover="Services">Torneos</span></a></li>
                                 <li><a href="#work" class="scroll"><span data-hover="Gallery">Fotos</span></a></li>
-                                <li><a href="#projects" class="scroll"><span data-hover="News">Nuevo</span></a></li>
+                                <li><a href="Jugador_registrar.jsp" ><span data-hover="News">Registrarse</span></a></li>
                                 <li><a href="login.jsp" ><span data-hover="Login">Login</span></a></li>
                             </ul>
                         </nav>
@@ -443,8 +443,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </div>
                             <div class="w3ls_footer_grid_leftr">
-                                <h4>Location</h4>
-                                <p>3030 New York, NY, USA</p>
+                                <h4>Ubicación</h4>
+                                <p>Duoc Sede Puente Alto</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -453,8 +453,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                             <div class="w3ls_footer_grid_leftr">
-                                <h4>Email</h4>
-                                <a href="mailto:info@example.com">info@example.com</a>
+                                <h4>Correo</h4>
+                                <a>se.mora@alumnos.duoc.cl</a>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -463,8 +463,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="w3ls_footer_grid_leftr">
-                                <h4>Call Us</h4>
-                                <p>(+000) 003 003 0052</p>
+                                <h4>Llamanos</h4>
+                                <p>(+569) 003 03 456</p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -473,7 +473,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
             <div class="w3l_footer_pos">
-                <p>© 2017 Fantasy World. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
+                <p>© 2017 Nos vamos League. Todos los derechos reservados | Diseñado por Ariel Bernal/Sebastian Mora</p>
             </div>
         </div>
         <!-- //footer -->
