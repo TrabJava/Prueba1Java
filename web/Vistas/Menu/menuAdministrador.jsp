@@ -18,9 +18,14 @@
     <body>
         <div class="container">
             <ul id="nav">
-                <li class="active"><a href="">Inicio</a></li>
+                <li class="active"><a href="Coach_index.jsp">Inicio</a></li>
                 <li><a href="Coach_registrar.jsp">Agregar Coach</a></li> 
-                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>         
+                <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>   
+                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
+                <li><a href="Equipo_Modificar.jsp">Modificar Equipo</a></li>
+                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
+                <li><a href="Jugador_Listar.jsp">Agregar Jugador</a></li>
+                <li><a href="Jugador_Modificar.jsp">Modificar Jugador</a></li>
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
