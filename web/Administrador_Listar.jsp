@@ -32,9 +32,7 @@
         <sql:query dataSource = "${snapshot}" var = "admin">
             SELECT * FROM usuario JOIN tipo_usuario ON usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario JOIN estado_usuario ON usuario.id_estado_usuario = estado_usuario.id_estado_usuario  WHERE usuario.id_tipo_usuario=2  ;
         </sql:query>
-       <%-- <sql:query dataSource = "${snapshot}" var = "desactivar">
-            UPDATE usuario set id_estado_usuario=2 ;
-        </sql:query>--%>
+       
         <c:choose>  
             <c:when test="${usuario == null}">
                 <div class="background"></div>
