@@ -20,11 +20,38 @@
     </head>
     <body>
         <c:choose>  
-            <c:when test="${usuario == null }">
-                <div class="background"></div>
-                <div class="content">               
-                    <h1>Tiene que iniciar sesión primero</h1>
-                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+            <c:when test="${usuario==null}">
+                <div class="row centered-form">
+                    <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>
+                                    <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
+                                </center>
+                            </div>
+                            <div class="panel-body">
+                                <form action="procesoUsuario" method="GET">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                            <div class="form-group">
+                                                <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                            </div>
+                                        </div>                               
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-5">
+                                            <div class="form-group">
+                                                <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
+                                </form>
+                                ${msjOK}
+                                ${msjNO}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </c:when>
             <c:when test="${tipo != 2 && tipo !=1}">
@@ -35,74 +62,76 @@
                 </div>
             </c:when>
             <c:when test="${tipo == 1 && usuario!=null}">
-                <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+                <c:when test="${usuario !=null}">
+                    <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+                </c:when>
                 <div class="row centered-form">
-                <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <center>
-                                <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
-                            </center>
-                        </div>
-                        <div class="panel-body">
-                            <form action="procesoUsuario" method="GET">
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
-                                            <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
-                                        </div>
-                                    </div>                               
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-5">
-                                        <div class="form-group">
-                                            <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
-                                        </div>
+                    <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <center>
+                                    <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
+                                </center>
+                            </div>
+                            <div class="panel-body">
+                                <form action="procesoUsuario" method="GET">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                            <div class="form-group">
+                                                <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                            </div>
+                                        </div>                               
                                     </div>
-                                </div>  
-                                <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
-                            </form>
-                            ${msjOK}
-                            ${msjNO}
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-5">
+                                            <div class="form-group">
+                                                <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
+                                </form>
+                                ${msjOK}
+                                ${msjNO}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </c:when>
             <c:when test="${tipo == 2 && usuario!=null}">
                 <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-                <div class="row centered-form">
-                <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <center>
-                                <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
-                            </center>
-                        </div>
-                        <div class="panel-body">
-                            <form action="procesoUsuario" method="GET">
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                        <div class="form-group">
-                                            <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
-                                        </div>
-                                    </div>                               
+                    <div class="row centered-form">
+                        <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 ">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <center>
+                                        <h3 class="panel-title"><strong>Registrar Usuario</strong> <small>Para SuperAdministrador</small></h3>
+                                    </center>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6 col-md-5">
-                                        <div class="form-group">
-                                            <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                <div class="panel-body">
+                                    <form action="procesoUsuario" method="GET">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                                <div class="form-group">
+                                                    <input type="text" name="txtNombreUsuario" class="form-control input-sm" required="" placeholder="Nombre de Usuario">
+                                                </div>
+                                            </div>                               
                                         </div>
-                                    </div>
-                                </div>  
-                                <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
-                            </form>
-                            ${msjOK}
-                            ${msjNO}
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-5">
+                                                <div class="form-group">
+                                                    <input type="password" name="txtPassword" class="form-control input-sm" required="" placeholder="Contraseña">
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <input type="submit" name="btnAccion" value="AgregarCoach" class="boton">
+                                    </form>
+                                ${msjOK}
+                                ${msjNO}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </c:when>
             
             <c:otherwise>
