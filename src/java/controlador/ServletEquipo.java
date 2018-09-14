@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class ServletEquipo extends HttpServlet {
         if(opcion.equals("Agregar")) {
             agregar(request, response);
         }
-        if(opcion.equals("Ekiminar")){
+        if(opcion.equals("Eliminar")){
            eliminar(request, response);
         }
         if(opcion.equals("Listar")){
@@ -122,17 +123,63 @@ public class ServletEquipo extends HttpServlet {
     }
     
 
-    private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-        
+    private void eliminar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        try {
+            //Recibimos los datos del formulario
+            int id = Integer.parseInt(request.getParameter("txtIdEquipo"));
+            //Llamamos al dao que tiene los metodos
+            equipoDAO dao = new equipoDAO();
+            
+            //Preguntamos si se elimina
+            if (dao.eliminar(id)) {
+                //variable de session (nombre de la variable, contenido)
+                request.getSession().setAttribute("msjOK", "Equipo Eliminado");
+            }else{
+                //variable de session (nombre de la variable, contenido)
+                request.getSession().setAttribute("msjNO", "Equipo No Eliminado");
+            }
+        } catch (Exception e) {
+                request.getSession().setAttribute("msjNO", "Error: " +e.getMessage());
+        }finally{
+           response.sendRedirect("index.jsp");
+        }
+   
     
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+      //llamamos al dao para poder listar
+      equipoDAO dao = new equipoDAO();
+      request.getSession().setAttribute("Equipo", dao.listarTodo());
+      response.sendRedirect("index.jsp");
     }
 
-    private void modificar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void modificar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
+        try {
+            //Recibimos el formulario
+            int id = Integer.parseInt(request.getParameter("txtIdEquipo"));
+            String nombreEquipo = request.getParameter("txtNombreEquipo");
+            int id_liga = Integer.parseInt(request.getParameter("cboLiga"));
+            String logo = request.getParameter("txtLogo");
+            int id_usuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+            //Validamos a nivel que tiene los metodos
+            Liga liga = new Liga(id_liga);
+            Usuario usuario = new Usuario(id_usuario);
+            Equipo eq = new Equipo(id, liga, usuario, nombreEquipo, logo);
+            //modificamos el equipo en la base de datos
+            equipoDAO dao = new equipoDAO();
+            if (dao.actualizar(eq)) {
+                //variable de session(nombre de la variable, contenido)
+                request.getSession().setAttribute("msjOK", "Equipo modificado");
+            }else{
+              //variable de session(nombre de la variable, contenido)
+              request.getSession().setAttribute("msjNo", "Equipo no modificado");
+            }
+        } catch (Exception e) {
+              request.getSession().setAttribute("msjNO", "Error: "+e.getMessage());
+        }finally{
+             response.sendRedirect("index.jsp");
+        }
     }
 
 }
