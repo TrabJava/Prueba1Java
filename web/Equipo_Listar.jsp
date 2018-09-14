@@ -12,14 +12,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Script Tutorials" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.2.0.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
+        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+        <br>
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
         <%
                         HttpSession sesion = request.getSession();
@@ -39,15 +51,15 @@
                         <% 
                         for (Equipo aux: dao.listarTodo()) {
                         %>
-                        <tr>
+                        <tr class="info">
                         <form action="procesoEquipo" method="GET">
-                            <td><input type="text" name="txtIdEquipo" readonly="" value="<%= aux.getIdEquipo()%>"></td>
-                            <td><input type="text" name="txtNombreEquipo" readonly="" value="<%= aux.getNombreEquipo()%>"></td>
-                            <td><input type="text" name="txtNombreLiga" readonly=""  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
-                            <td><input type="text" name="txtNombreUsuario" readonly=""  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
-                            <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>">Modificar Equipo</a></td>
-                             <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url">Ver Jugadores</a></td>
-                             <td><input type="submit" name="btnAccion" value="Eliminar"></td>
+                            <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
+                            <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
+                            <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
+                            <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
+                            <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
+                            <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
+                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
                         </form>
                             
                         </tr>
