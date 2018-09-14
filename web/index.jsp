@@ -235,7 +235,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s11.png" alt="" width="520" height="740" />
+                                <img src="images/s11.png" alt="" width="400" height="520" />
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
@@ -245,7 +245,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s2.jpg" alt="" width="520" height="740"/>
+                                <img src="images/s2.jpg" alt="" width="400" height="520"/>
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
@@ -255,7 +255,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s3.jpg" alt="" />
+                                <img src="images/s3.jpg" alt="" width="400" height="520"/>
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Fornite</h4>
@@ -265,7 +265,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s4.jpg" alt="" width="520" height="740"/>
+                                <img src="images/s4.jpg" alt="" width="400" height="520"/>
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
@@ -275,7 +275,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s55.png" alt="" width="520" height="740"/>
+                                <img src="images/s55.png" alt="" width="400" height="520"/>
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Fornite</h4>
@@ -285,7 +285,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s6.png" alt=""width="520" height="740" />
+                                <img src="images/s6.png" alt="" width="400" height="520" />
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Fornite</h4>
@@ -295,7 +295,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s7.jpg" alt="" width="520" height="740"/>
+                                <img src="images/s7.jpg" alt="" width="400" height="520"/>
                                 <div class="projects-grid-caption"> 
 
                                     <h4>League of Legends</h4>
@@ -305,7 +305,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                         <div class="item">
                             <div class="projects-agile-grid-info">
-                                <img src="images/s8.jpg" alt="" width="520" height="740" />
+                                <img src="images/s8.jpg" alt="" width="400" height="520" />
                                 <div class="projects-grid-caption">
                                     <h4>League of Legends</h4>
                                 </div>
