@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta charset="utf-8" />
         <meta name="author" content="Script Tutorials" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,12 +25,10 @@
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        
+
         <title>JSP Page</title>
     </head>
     <body>
-         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-         
         <%
             //CONECTANOD A LA BASE DE DATOS:
             Connection con;
@@ -48,50 +46,101 @@
             rs = ps.executeQuery();
             while (rs.next()) {
         %>
-        
-                   <table class="table table-bordered table-striped ">
+        <c:choose>  
+            <c:when test="${usuario == null }">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>Tiene que iniciar sesión primero</h1>
+                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo != 2 && tipo !=1}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
+                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo == 1 && usuario!=null}">
+                <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+                    <form action="procesoJugador" method="GET" >
+                        <table class="table table-bordered table-striped ">
 
-                                    <tr>
+                            <tr>
 
-                                        <th>RUT JUGADOR</th>
-                                        <th>NOMBRE JUGADOR</th>
-                                        <th>APELLIDO JUGADOR</th>
-                                        <th>NOMBRE DEL EQUIPO</th>
-                                        <th>TITULAR</th>
-                                    </tr>
+                                <th>RUT JUGADOR</th>
+                                <th>NOMBRE JUGADOR</th>
+                                <th>APELLIDO JUGADOR</th>
+                                <th>NOMBRE DEL EQUIPO</th>
+                                <th>TITULAR</th>
+                            </tr>
 
-                                    <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
-                                    
-                                        <form action="procesoJugador" method="GET" >
-                                        <tr class="info">  
-                                            <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
-                                            <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
-                                            <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
-                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
-                                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
-                                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
-                                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                                            <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
-                                        </tr>
-                                        </form>
-                                    
-                                    
+                            <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
 
-                                </table>
 
-                            
+                        <tr class="info">  
+                            <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
+                            <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
+                            <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
+                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
+                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+                            <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
+                        </tr>
 
-                        </div>
-                        <div class="col-lg-3">
 
-                        </div>
-                        </form>
 
-                    </div>
+                    </table>
+                </form>
+
+
+                <div class="col-lg-3">
 
                 </div>
-       
-        
-            <%}%>
+            </c:when>
+            <c:when test="${tipo == 2 && usuario!=null}">
+                <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+                    <form action="procesoJugador" method="GET" >
+                        <table class="table table-bordered table-striped ">
+
+                            <tr>
+
+                                <th>RUT JUGADOR</th>
+                                <th>NOMBRE JUGADOR</th>
+                                <th>APELLIDO JUGADOR</th>
+                                <th>NOMBRE DEL EQUIPO</th>
+                                <th>TITULAR</th>
+                            </tr>
+
+                            <h1>Jugadores del Equipo: <%= rs.getString("nombre_equipo")%></h1>
+
+
+                        <tr class="info">  
+                            <td><input type="text" readonly="" name="txtRut" class="form-control" value="<%= rs.getString("rut_jugador")%>"/></td>
+                            <td><input type="text" name="txtNombreJugador" class="form-control" value="<%= rs.getString("nombre_jugador")%>"/></td>
+                            <td><input type="text" name="txtApellidoJugador" class="form-control" value="<%= rs.getString("apellido_jugador")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/></td>
+                            <td><input type="text" name="txtEquipo" readonly="" class="form-control" value="<%= rs.getString("descripcion_titular")%>"/></td>
+                            <td><a href="Jugador_Modificar.jsp?id=<%= rs.getString("rut_jugador")%>" class="btn btn-info" id="url">Modificar</a></td>
+                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+                            <td><a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a></td>
+                        </tr>
+
+
+
+
+                    </table>
+                </form>
+
+
+                <div class="col-lg-3">
+
+                </div>
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+        <%}%>
     </body>
 </html>
