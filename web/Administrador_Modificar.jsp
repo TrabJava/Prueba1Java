@@ -89,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-xs-6 col-sm-6 col-md-4 ">
                                             <div class="form-group">
-                                                <input type="text" name="txtNombreUsuario" class="form-control" value="<%= rs.getString("nombre_usuario")%>"/>
+                                                <input type="text" name="txtNombreUsuario"  class="form-control" value="<%= rs.getString("nombre_usuario")%>"/>
                                             </div>
                                         </div>                               
                                     </div>

@@ -102,7 +102,7 @@
                     </form>
             </div>
             </c:when>
-            <c:when test="${tipo == 2 && usuario!=null}">
+            <c:when test="${tipo == 2 && usuario!=null && estado !=1}">
                 <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                 <div class="container">
                 <h1>Modificar equipo <strong><%= rs.getString("nombre_equipo")%></strong></h1>

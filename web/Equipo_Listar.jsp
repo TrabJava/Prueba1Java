@@ -87,7 +87,7 @@
                          <% } %>
             </form>
         </c:when>
-        <c:when test="${tipo == 2 && usuario!=null}">
+        <c:when test="${tipo == 2 && usuario!=null && estado !=1}">
             <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
                 <form action="procesoEquipo" method="GET">
                     <table class="table table-bordered table-striped">
