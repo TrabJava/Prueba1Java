@@ -27,8 +27,23 @@ public class Equipo  implements java.io.Serializable {
     public Equipo(Integer idEquipo) {
         this.idEquipo = idEquipo;
     }
-    
 
+    public Equipo(Integer idEquipo, Liga liga, String nombreEquipo) {
+        this.idEquipo = idEquipo;
+        this.liga = liga;
+        this.nombreEquipo = nombreEquipo;
+    }
+
+    public Equipo(Integer idEquipo, Liga liga, Usuario usuario, String nombreEquipo, String logoEquipo) {
+        this.idEquipo = idEquipo;
+        this.liga = liga;
+        this.usuario = usuario;
+        this.nombreEquipo = nombreEquipo;
+        this.logoEquipo = logoEquipo;
+    }
+    
+    
+   
 	
     public Equipo(Liga liga, Usuario usuario, String nombreEquipo, String logoEquipo) {
         this.liga = liga;
