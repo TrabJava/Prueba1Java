@@ -7,6 +7,8 @@
 <%@page import="modelo.dto.Usuario"%>
 <%@page import="modelo.dao.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +26,15 @@
         <title>Listar Administradores</title>
     </head>
     <body>
+        <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+                           url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
+                           user = "root"  password = ""/>
+        <sql:query dataSource = "${snapshot}" var = "admin">
+            SELECT * FROM usuario JOIN tipo_usuario ON usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario JOIN   WHERE usuario.id_tipo_usuario=2  ;
+        </sql:query>
+       <%-- <sql:query dataSource = "${snapshot}" var = "desactivar">
+            UPDATE usuario set id_estado_usuario=2 ;
+        </sql:query>--%>
         <c:choose>  
             <c:when test="${usuario == null}">
                 <div class="background"></div>
@@ -58,32 +69,34 @@
                                     UsuarioDAO dao = new UsuarioDAO();
                             %>
                             <form action="../procesoUsuario" method="GET">
-                               
-                                    <table class="table table-bordered table-striped ">
-                                        <tr>
 
-                                            <th>ID USUARIO</th>
-                                            <th>NOMBRE USUARIO</th>
-                                            <th>CONTRASEÑA</th>
-                                            <th>ID TIPO USUARIO</th>
-                                            <th>ID ESTADO USUARIO</th>
+                                <table class="table table-bordered table-striped ">
+
+                                    <tr>
+
+                                        <th>ID USUARIO</th>
+                                        <th>NOMBRE USUARIO</th>
+                                        <th>CONTRASEÑA</th>
+                                        <th>ID TIPO USUARIO</th>
+                                        <th>ID ESTADO USUARIO</th>
+                                    </tr>
+
+
+                                    <c:forEach var = "row" items = "${admin.rows}">
+                                        <tr class="info">   
+
+                                            <td><input name="txtId" type="text" readonly="" value="${row.id_usuario}"></td>
+                                            <td><input name="txtNombreUsuario" type="text" readonly="" value="${row.nombre_usuario}"></td>
+                                            <td><input name="txtPassword" type="text" readonly="" value="${row.contrasenia}"></td>
+                                            <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="${row.id_tipo_usuario}"></td>
+                                            <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="${row.id_estado_usuario}"></td>
+                                            <td><a href="Administrador_Modificar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Modificar</td>
+                                            <td><a href="Administrador_Listar.jsp?id=${row.id_usuario}"class="btn btn-primary" id="url"/>Desactivar</td>
+
                                         </tr>
-                                        <%
-                                            for (Usuario aux : dao.listarTodo()) {
-                                        %>
-                                       
-                                            <tr class="info">     
-                                                <td><input name="txtId" type="text" readonly="" value="<%= aux.getIdUsuario()%>"></td>
-                                                <td><input name="txtNombreUsuario" type="text" readonly="" value="<%= aux.getNombreUsuario()%>"></td>
-                                                <td><input name="txtPassword" type="text" readonly="" value="<%= aux.getContrasenia()%>"></td>
-                                                <td><input name="txtDescripcionTipoUsuario" type="text" readonly="" value="<%= aux.getTipoUsuario().getDescripcionTipoUsuario()%>"></td>
-                                                <td><input name="txtDescripcionEstadoUsuario" type="text" readonly="" value="<%= aux.getEstadoUsuario().getDescripcionEstadoUsuario()%>"></td>
-                                                <td><a href="Administrador_Modificar.jsp?id=<%= aux.getIdUsuario()%>"class="btn btn-primary" id="url"/>Modificar</td>
-                                                <td><a href="Administrador_Listar.jsp?id=<%= aux.getIdUsuario()%>"class="btn btn-primary" id="url"/>Desactivar</td>
+                                    </c:forEach>
 
-                                            </tr>
-                                        <% } %>
-                                    </table>
+                                </table>
 
                             </form> 
                             <% }%>
