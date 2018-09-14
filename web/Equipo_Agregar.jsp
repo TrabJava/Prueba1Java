@@ -62,6 +62,7 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 col-md-4 ">
                                                 <div class="form-group">
+                                                    <label>Nombre Equipo:</label>
                                                     <input type="text" name="txtNombreEquipo" class="form-control input-sm" required="" placeholder="Nombre equipo">
                                                 </div>
                                             </div>                               
@@ -70,6 +71,7 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 col-md-4 ">
                                                 <div class="form-group">
+                                                    <label>Nombre Liga:</label>
                                                     <select name="cboLiga" >
                                                     <c:forEach var = "row" items = "${result.rows}">
                                                         <option value="${row.id_liga}">${row.descripcion_liga}</option>
@@ -81,6 +83,7 @@
                                     <div class="row">
                                         <div class="col-xs-6 col-sm-6 col-md-4 ">
                                             <div class="form-group">
+                                                <label>Logo:</label>
                                                 <input type="text" name="fileLogo" class="form-control input-sm" required="" >
                                             </div>
                                         </div>                               
@@ -89,7 +92,7 @@
                                         <div class="col-xs-6 col-sm-6 col-md-4 ">
                                             <div class="form-group">
                                                 <c:forEach var = "row" items = "${sesion.rows}">
-                                                    <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_usuario}">
+                                                    <input type="text" name="txtIdEquipo" readonly="" class="form-control input-sm" value="${row.id_usuario}">
 
                                                 </c:forEach>
                                             </div>
