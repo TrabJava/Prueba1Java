@@ -30,6 +30,7 @@
         <sql:query dataSource = "${snapshot}" var = "equipo">
             SELECT id_equipo FROM equipo WHERE id_usuario=(SELECT id_usuario FROM usuario WHERE nombre_usuario="${usuario}");
         </sql:query>
+            
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
             <div class="row centered-form">
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
