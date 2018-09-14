@@ -48,17 +48,17 @@ public class ServletAcceso extends HttpServlet {
               //redireccion
               request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
               request.getSession().setAttribute("tipo", aux.getTipoUsuario().getIdTipoUsuario());
+              request.getSession().setAttribute("estado", aux.getEstadoUsuario().getIdEstadoUsuario());
               response.sendRedirect("Administrador_index.jsp");
             }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("administrador")){
               request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
               request.getSession().setAttribute("tipo", aux.getTipoUsuario());
-              request.getSession().setAttribute("estado", aux.getEstadoUsuario());
-              response.sendRedirect("index.jsp");
+              request.getSession().setAttribute("estado", aux.getEstadoUsuario().getIdEstadoUsuario());
+              response.sendRedirect("Coach_Index.jsp");
             }else if(aux.getTipoUsuario().getDescripcionTipoUsuario().equals("usuario")){
                 request.getSession().setAttribute("idUsuario", usuario.getIdUsuario());
               request.getSession().setAttribute("usuario", usuario.getNombreUsuario());
-              request.getSession().setAttribute("tipo", usuario.getTipoUsuario().getIdTipoUsuario());
-              response.sendRedirect("Jugador_Listar.jsp");
+              response.sendRedirect("Usuario_Index.jsp");
             }else{
                 request.getSession().setAttribute("mensaje", "Error");
                 response.sendRedirect("login.jsp");
