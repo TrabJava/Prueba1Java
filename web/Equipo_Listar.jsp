@@ -30,7 +30,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+        
 
         <%
             HttpSession sesion = request.getSession();
