@@ -46,42 +46,108 @@
             while (rs.next()) {
         %>
 
-        <div class="container">
-            <h1>Modificar equipo <strong><%= rs.getString("nombre_equipo")%></strong></h1>
-            <hr>
-            <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
-                ID Equipo:
-                <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
-        <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-            <div class="container">
-                <h1>Modificar Registro</h1>
+        <c:choose>  
+            <c:when test="${usuario == null }">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>Tiene que iniciar sesión primero</h1>
+                    <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo != 2 && tipo !=1}">
+                <div class="background"></div>
+                <div class="content">               
+                    <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
+                    <h3><a href="login.jsp">(Volver al Login)</a></h3>              
+                </div>
+            </c:when>
+            <c:when test="${tipo == 1 && usuario!=null}">
+                <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+                <div class="container">
+                <h1>Modificar equipo <strong><%= rs.getString("nombre_equipo")%></strong></h1>
                 <hr>
                 <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
                     ID Equipo:
                     <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
-                Nombre Equipo:
-                <input type="text" name="txtNombreEquipo" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/><br>
+                    <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+                        <div class="container">
+                            <h1>Modificar Registro</h1>
+                            <hr>
+                            <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
+                                ID Equipo:
+                                <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
+                            Nombre Equipo:
+                            <input type="text" name="txtNombreEquipo" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/><br>
 
-                <input type="hidden" readonly="" name="txtLogo" value="<%= rs.getString("logo_equipo")%>">
-                <input type="hidden" readonly="" name="txtIdUsuario" value="<%= rs.getString("id_usuario")%>">
+                            <input type="hidden" readonly="" name="txtLogo" value="<%= rs.getString("logo_equipo")%>">
+                            <input type="hidden" readonly="" name="txtIdUsuario" value="<%= rs.getString("id_usuario")%>">
 
-                Liga:
-                <select name="cboLiga" >
-                    <%
+                            Liga:
+                            <select name="cboLiga" >
+                                <%
                                     while (rset.next()) {%>
-                    <option value="<%= rset.getInt("id_liga")%>"><%= rset.getString("descripcion_liga")%></option>
-                    <%}
-                    %>
-                </select>
+                                <option value="<%= rset.getInt("id_liga")%>"><%= rset.getString("descripcion_liga")%></option>
+                                <%}
+                                %>
+                            </select>
 
-                <br>
-                <br>
-                <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary"/>
+                            <br>
+                            <br>
+                            <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary"/>
 
-                <a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a>
-            </form>
-            <%}%>
-        </div>
-    </body>
-</html>
+                            <a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a>
+                        
+                       
+                    </div>
+                    </form>
+            </div>
+            </c:when>
+            <c:when test="${tipo == 2 && usuario!=null}">
+                <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+                <div class="container">
+                <h1>Modificar equipo <strong><%= rs.getString("nombre_equipo")%></strong></h1>
+                <hr>
+                <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
+                    ID Equipo:
+                    <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
+                    <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+                        <div class="container">
+                            <h1>Modificar Registro</h1>
+                            <hr>
+                            <form action="procesoEquipo" method="GET" class="form-control" style="width: 500px; height: 400px">
+                                ID Equipo:
+                                <input type="text" readonly="" name="txtIdEquipo" class="form-control" value="<%= rs.getString("id_equipo")%>"/>
+                            Nombre Equipo:
+                            <input type="text" name="txtNombreEquipo" class="form-control" value="<%= rs.getString("nombre_equipo")%>"/><br>
+
+                            <input type="hidden" readonly="" name="txtLogo" value="<%= rs.getString("logo_equipo")%>">
+                            <input type="hidden" readonly="" name="txtIdUsuario" value="<%= rs.getString("id_usuario")%>">
+
+                            Liga:
+                            <select name="cboLiga" >
+                                <%
+                                    while (rset.next()) {%>
+                                <option value="<%= rset.getInt("id_liga")%>"><%= rset.getString("descripcion_liga")%></option>
+                                <%}
+                                %>
+                            </select>
+
+                            <br>
+                            <br>
+                            <input type="submit" value="Modificar" name="btnAccion" class="btn btn-primary"/>
+
+                            <a href="Equipo_Listar.jsp" class="btn btn-success">Regresar</a>
+                        
+                        
+                    </div>
+                    </form>
+            </div>
+            </c:when>
+            
+                    <c:otherwise>
+                    </c:otherwise>
+                </c:choose>
+                <%}%>
+                </body>
+                </html>
 
