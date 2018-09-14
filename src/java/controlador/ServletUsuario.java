@@ -199,7 +199,7 @@ public class ServletUsuario extends HttpServlet {
             //Recibimos los datos del formulario
             String nombre = request.getParameter("txtNombreUsuario");
             String contra = request.getParameter("txtPassword");
-            int tipoUsuario = 2;
+            int tipoUsuario = 3;
             int estadoUsuario = 1;
             TipoUsuario tipo = new TipoUsuario(tipoUsuario);
             EstadoUsuario estado = new EstadoUsuario(estadoUsuario);
