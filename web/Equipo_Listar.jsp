@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta charset="utf-8" />
         <meta name="author" content="Script Tutorials" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,39 +31,90 @@
     </head>
     <body>
         <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
-       
+
         <%
-                        HttpSession sesion = request.getSession();
-                        if ( sesion.getAttribute("usuario") == null ) {
-                            out.println("No Existen Datos");
-                        } else {
-                           equipoDAO dao = new equipoDAO();
-                    %>
-         <table class="table table-bordered table-striped">
-                        <tr>
-                            <th>Rut Jugador</th>
-                            <th>Nombre Jugador</th>
-                            <th>Apellido Jugador</th>
-                            <th>Nombre del Equipo</th>
-                            <th>Titular</th>
-                        </tr>
-                        <% 
-                        for (Equipo aux: dao.listarTodo()) {
-                        %>
-                        <tr class="info">
-                        <form action="procesoEquipo" method="GET">
-                            <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
-                            <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
-                            <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
-                            <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
-                            <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
-                            <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
-                            <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
-                        </form>
-                            
-                        </tr>
-                        <% } %>
-                    </table>
-                    <% } %>
-    </body>
+            HttpSession sesion = request.getSession();
+            if (sesion.getAttribute("usuario") == null) {
+                out.println("No Existen Datos");
+            } else {
+                equipoDAO dao = new equipoDAO();
+        %>
+    <c:choose>  
+        <c:when test="${usuario == null }">
+            <div class="background"></div>
+            <div class="content">               
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="login.jsp">(Iniciar Sesión)</a></h3>              
+            </div>
+        </c:when>
+        <c:when test="${tipo != 2 && tipo !=1}">
+            <div class="background"></div>
+            <div class="content">               
+                <h1>No tiene acceso de ingresar a otra sesión por medio de url</h1>
+                <h3><a href="login.jsp">(Volver al Login)</a></h3>              
+            </div>
+        </c:when>
+        <c:when test="${tipo == 1 && usuario!=null}">
+            <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Rut Jugador</th>
+                        <th>Nombre Jugador</th>
+                        <th>Apellido Jugador</th>
+                        <th>Nombre del Equipo</th>
+                        <th>Titular</th>
+                    </tr>
+                <%
+                    for (Equipo aux : dao.listarTodo()) {
+                %>
+                <tr class="info">
+                <form action="procesoEquipo" method="GET">
+                    <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
+                    <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
+                    <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
+                    <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
+                    <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
+                    <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
+                    <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+                </form>
+
+                </tr>
+                <% } %>
+            </table>
+
+        </c:when>
+        <c:when test="${tipo == 2 && usuario!=null}">
+            <jsp:include page="Vistas/Menu/menuAdministrador.jsp"></jsp:include>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Rut Jugador</th>
+                        <th>Nombre Jugador</th>
+                        <th>Apellido Jugador</th>
+                        <th>Nombre del Equipo</th>
+                        <th>Titular</th>
+                    </tr>
+                <%
+                    for (Equipo aux : dao.listarTodo()) {
+                %>
+                <tr class="info">
+                <form action="procesoEquipo" method="GET">
+                    <td><input type="text" name="txtIdEquipo" readonly="" class="form-control" value="<%= aux.getIdEquipo()%>"></td>
+                    <td><input type="text" name="txtNombreEquipo" readonly="" class="form-control" value="<%= aux.getNombreEquipo()%>"></td>
+                    <td><input type="text" name="txtNombreLiga" readonly="" class="form-control"  value="<%= aux.getLiga().getDescripcionLiga()%>"></td>
+                    <td><input type="text" name="txtNombreUsuario" readonly="" class="form-control"  value="<%= aux.getUsuario().getNombreUsuario()%>"></td>
+                    <td><a href="Equipo_Modificar.jsp?id=<%= aux.getIdEquipo()%>" class="btn btn-info">Modificar Equipo</a></td>
+                    <td><a href="Jugador_Listar.jsp?id=<%= aux.getIdEquipo()%>" id="url" class="btn btn-success">Ver Jugadores</a></td>
+                    <td><input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"></td>
+                </form>
+
+                </tr>
+                <% } %>
+            </table>
+            <% }%>
+        </c:when>
+        <c:otherwise>
+        </c:otherwise>
+    </c:choose>
+
+</body>
 </html>
