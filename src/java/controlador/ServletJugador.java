@@ -148,7 +148,7 @@ public class ServletJugador extends HttpServlet {
         //Llamamos al dao para poder listar
         JugadorDAO dao = new JugadorDAO();
         request.getSession().setAttribute("jugador", dao.listarTodo());
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("Jugador_Listar.jsp");
     
     }
 
