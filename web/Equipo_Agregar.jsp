@@ -19,6 +19,7 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="js/FormularioSuperUsuario/EstiloFormulario.css" rel="stylesheet" type="text/css" />
+        <link href="js/jsMenus/Menus.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
