@@ -48,7 +48,7 @@
         %>
         
        
-                <jsp:include page="Vistas/Menu/menuSuperUsuario.jsp"></jsp:include>
+               
                     <form action="procesoJugador" method="GET" >
                         <table class="table table-bordered table-striped ">
 
