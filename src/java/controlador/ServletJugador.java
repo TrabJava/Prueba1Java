@@ -97,7 +97,7 @@ public class ServletJugador extends HttpServlet {
             String rutJugador = request.getParameter("txtRutJugador");
             String nombreJugador = request.getParameter("txtNombreJugador");
             String apellidoJugador = request.getParameter("txtApellidoJugador");
-            int idEquipo = Integer.parseInt(request.getParameter("txtIdEquipo"));
+            int idEquipo = Integer.parseInt(request.getParameter("cboEquipo"));
             int idTitular = Integer.parseInt(request.getParameter("cboTitular"));
             //Validamos a nivel de modelo(DTO)
             Equipo equipo = new Equipo(idEquipo);
