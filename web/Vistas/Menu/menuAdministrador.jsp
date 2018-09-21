@@ -42,6 +42,7 @@
                         </li>
                     </ul>
                 </li>
+                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
 
             </ul>
         </div>
