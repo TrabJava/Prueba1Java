@@ -190,7 +190,7 @@
                                     </center>
                                 </div>
                                 <div class="panel-body">
-                                    <form action="procesoJugador" method="GET">
+                                    <form action="controlador/procesoJugador" method="GET">
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 col-md-4 ">
                                                 <div class="form-group">
@@ -218,6 +218,17 @@
                                                 <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
 
                                             </c:forEach>
+                                        </div>                               
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                            <div class="form-group">
+                                                <select name="cboTitular" >
+                                                    <c:forEach var = "row" items = "${result.rows}">
+                                                        <option value="${row.id_titular}">${row.descripcion_titular}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
                                         </div>                               
                                     </div>
                                     <div class="row">
