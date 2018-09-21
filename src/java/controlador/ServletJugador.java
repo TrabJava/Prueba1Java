@@ -118,7 +118,7 @@ public class ServletJugador extends HttpServlet {
         } catch (Exception e) {
             request.getSession().setAttribute("msjNo", "Error: "+ e.getMessage());
         }finally{
-          response.sendRedirect("Usuario_Index.jsp");
+          response.sendRedirect("Jugador_registrar.jsp");
         }
     }
 
