@@ -17,12 +17,32 @@
     </head>
     <body>
         <div class="container">
-            <ul id="nav">
-                <li class="active"><a href="Coach_Index.jsp">Inicio</a></li>
-                <li><a href="Coach_registrar.jsp">Agregar Coach</a></li>  
-                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
-                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
-                <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
+            <ul id="nav">    
+                <li><a href="#s1">Menu para Administrador</a>
+                    <span id="s1"></span>
+                    <ul class="subs">
+                        <li><a href="#">Gestion de Usuarios</a>
+                            <ul>
+                                <li><a href="Coach_registrar.jsp">Agregar Coach</a></li>   
+                                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
+                                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+     
+                <li><a href="#s1">Menu para Usuarios</a>
+                    <span id="s1"></span>
+                    <ul class="subs">
+                        <li><a href="#">Gestion de Equipos</a>
+                            <ul>
+                                <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>
+                                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </body>

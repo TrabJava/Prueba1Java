@@ -18,19 +18,44 @@
     <body>
         <div class="container">
             <ul id="nav">
-                <!Menu de SuperUsuario>
                 <li><a href="Administrador_index.jsp">Inicio</a></li>
-                <li><a href="Administrador_Agregar.jsp">Agregar Administrador</a></li>
-                <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a</li>
-                
-                <!Menu de Administrador>
-                <li><a href="Coach_registrar.jsp">Agregar Coach</a></li>   
-                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
-                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
-                
-                <!Menu de Usuario>
-                <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>
-                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a>
+                <li><a href="#s1">Menu Super Usuario</a>
+                    <span id="s1"></span>
+                    <ul class="subs">
+                        <li><a href="#">Gestion de Administradores</a>
+                            <ul>
+                                <li><a href="Administrador_Agregar.jsp">Agregar Administrador</a></li>
+                                <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#s1">Menu para Administrador</a>
+                    <span id="s1"></span>
+                    <ul class="subs">
+                        <li><a href="#">Gestion de Usuarios</a>
+                            <ul>
+                                <li><a href="Coach_registrar.jsp">Agregar Coach</a></li>   
+                                <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
+                                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#s1">Menu para Usuarios</a>
+                    <span id="s1"></span>
+                    <ul class="subs">
+                        <li><a href="#">Gestion de Equipos</a>
+                            <ul>
+                                <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>
+                                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
