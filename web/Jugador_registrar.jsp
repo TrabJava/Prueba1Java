@@ -35,8 +35,9 @@
             SELECT id_titular, descripcion_titular FROM titular;
         </sql:query>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT id_equipo FROM equipo WHERE id_usuario=(SELECT id_usuario FROM usuario WHERE nombre_usuario="${usuario}");
+            SELECT id_equipo,nombre_equipo FROM equipo;
         </sql:query>
+          
 
         <c:choose>  
             <c:when test="${usuario == null }">
@@ -86,12 +87,17 @@
                                                 </div>
                                             </div>                               
                                         </div>
+                                                                      
+                                    </div>
                                         <div class="row">
-                                            <div class="col-xs-6 col-sm-6 col-md-4 ">
-                                            <c:forEach var = "row" items = "${equipo.rows}">
-                                                <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
-
-                                            </c:forEach>
+                                        <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                            <div class="form-group">
+                                                <select name="cboEquipo" >
+                                                    <c:forEach var = "row" items = "${equipo.rows}">
+                                                        <option value="${row.id_equipo}">${row.nombre_equipo}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
                                         </div>                               
                                     </div>
                                     <div class="row">
@@ -155,6 +161,17 @@
                                                 <input type="text" name="txtIdEquipo" class="form-control input-sm" required="" value="${row.id_equipo}">
 
                                             </c:forEach>
+                                        </div>                               
+                                    </div>
+                                        <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-4 ">
+                                            <div class="form-group">
+                                                <select name="cboTitular" >
+                                                    <c:forEach var = "row" items = "${result.rows}">
+                                                        <option value="${row.id_titular}">${row.descripcion_titular}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
                                         </div>                               
                                     </div>
                                     <div class="row">
