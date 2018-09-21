@@ -18,12 +18,19 @@
     <body>
         <div class="container">
             <ul id="nav">
+                <!Menu de SuperUsuario>
                 <li><a href="Administrador_index.jsp">Inicio</a></li>
                 <li><a href="Administrador_Agregar.jsp">Agregar Administrador</a></li>
                 <li class="active"><a href="Administrador_Listar.jsp">Listar Administrador</a</li>
+                
+                <!Menu de Administrador>
                 <li><a href="Coach_registrar.jsp">Agregar Coach</a></li>   
                 <li><a href="Equipo_Listar.jsp">Listar Equipo</a></li>               
                 <li><a href="Jugador_registrar.jsp">Agregar Jugador</a></li>
+                
+                <!Menu de Usuario>
+                <li><a href="Equipo_Agregar.jsp">Agregar Equipo</a></li>
+                <li><a href="Jugador_registrar.jsp">Agregar Jugador</a>
                 <li><a href="procesoCerrarSession">Cerrar Sesion</a></li>
             </ul>
         </div>
